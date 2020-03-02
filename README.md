@@ -13,8 +13,8 @@ la innovación y el beneficio y buscar clientes pilotos que al final compren
 la aplicación por su utilidad (la compra no se realiza, es una forma de reflejar
 que sería algo por lo que pagarían).
 
-Módulo
------------
+Módulos
+-------
 
 Este proyecto Django se divide en 3 módulos principales, los cuales estarán desacoplados
 entre ellos. Donde cualquier de ellos sw podrá reemplazar individualmente.
@@ -23,3 +23,23 @@ entre ellos. Donde cualquier de ellos sw podrá reemplazar individualmente.
 * **user:** Este se encarga de la organización de los usuarios y del registro de los mismos.
 * **stripe:** Se encarga del tema de los pagos, como su mismo nombre indica, usaremos stripe para esta tarea.
 * **chat:** El subsistema de chat está destinado a a poner en contacto a dos usuarios para realizar la comprar y quedar para la entrega del producto.
+
+Configurar y ejecutar el proyecto
+---------------------------------
+
+Para configurar el proyecto, será necesario instalar las dependencias del proyecto, las cuales están en el
+fichero requirements.txt:
+
+    pip install -r requirements.txt
+
+Entramos en la carpeta del proyecto (cd board) y realizamos la primera migración para preparar la
+base de datos que utilizaremos:
+
+    python manage.py makemigrations
+
+    python manage.py migrate
+
+Por último, ya podremos ejecutar el módulos o módulos seleccionados en la configuración de la
+siguiente manera:
+
+    python manage.py runserver
