@@ -22,7 +22,7 @@ entre ellos. Donde cualquier de ellos sw podrá reemplazar individualmente.
 * **rent:** Este es el módulo principal de la aplicación, se encargar del alquiler de los juegos y mostrar los mismos.
 * **user:** Este se encarga de la organización de los usuarios y del registro de los mismos.
 * **stripe:** Se encarga del tema de los pagos, como su mismo nombre indica, usaremos stripe para esta tarea.
-* **chat:** El subsistema de chat está destinado a a poner en contacto a dos usuarios para realizar la comprar y quedar para la entrega del producto.
+* **review:** El subsistema de chat está destinado para poder valorar los productos que suben los usuarios como a los propios usuarios.
 
 Configurar y ejecutar el proyecto
 ---------------------------------
