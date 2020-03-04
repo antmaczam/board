@@ -43,7 +43,9 @@ Por último, ya podremos ejecutar el módulos o módulos seleccionados en la con
 siguiente manera:
 
     python manage.py runserver
-    
+
+Configurar Postgres (Windows)
+-----------------------------
 Lo primero es instalar Postgres en Windows, usando un ejecutable que puedes encontra aquí: http://www.enterprisedb.com/products-services-training/pgdownload#windows
 
 Escoge la versión mas nueva disponible para tu sistema operativo. Descarga el instalador, ejecútalo y sigue las instrucciones disponibles aquí http://www.postgresqltutorial.com/install-postgresql/. Toma nota del directorio donde se instaló y el usuario, porque lo necesitarás en el siguiente paso (no olvidar usar el puerto 5432).
@@ -58,6 +60,7 @@ Ejecuta la siguiente configuración y presiona enter (Asegúrate de que el la ca
 Cierra y vuelve a abrir la línea de comandos.
     
 **Crear la base de datos**
+
 Primero, vamos a iniciar la consola de Postgres ejecutando el siguiente comando:
 
     psql -U <username> -W
