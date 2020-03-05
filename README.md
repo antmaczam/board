@@ -24,8 +24,36 @@ entre ellos. Donde cualquier de ellos sw podrá reemplazar individualmente.
 * **stripe:** Se encarga del tema de los pagos, como su mismo nombre indica, usaremos stripe para esta tarea.
 * **review:** El subsistema de chat está destinado para poder valorar los productos que suben los usuarios como a los propios usuarios.
 
-Configurar y ejecutar el proyecto
----------------------------------
+Configurar Postgres (Windows)
+-----------------------------
+
+Para instalar Postgres en Windows, lo primero es descargar e instalar es necesario seguir los pasos de esta pequeña guía: http://www.postgresqltutorial.com/install-postgresql/ (Consejo: toma nota del directorio donde lo instalaste), y el ejecutable lo puedes encontra aquí: http://www.enterprisedb.com/products-services-training/pgdownload#windows.
+
+Abre la línea de comandos (Inicio → Todos los programas → Accesorios → Linea de comandos o Inicio → Ejecutar → cmd)
+Ejecuta el siguiente comando para añadir la ruta al PATH de Windows o añádela manualmente (asegúrate de que el la carpeta sea la misma que anotaste cuando estabas instalando con un \bin al final)
+
+    setx PATH "%PATH%;C:\Program Files\PostgreSQL\9.3\bin"
+
+Cierra y vuelve a abrir la línea de comandos.
+    
+* **Crear la base de datos**
+
+Primero, vamos a iniciar la consola de Postgres ejecutando el siguiente comando:
+
+    psql -U <username> -W
+    
+donde username es el nombre de usuario que se usó en la instalación. Después pedirá introducir la contraseña que se puso para ese usuario.
+
+Ahora vamos a crear un usuario para nuestra bbdd con la siguiente linea
+
+    # CREATE USER board WITH PASSWORD 'board';
+    
+Y para la bbdd escribimos lo siguiente 
+
+    # CREATE DATABASE boardDB OWNER board;
+
+Configurar el proyecto
+----------------------
 
 Para configurar el proyecto, será necesario instalar las dependencias del proyecto, las cuales están en el
 fichero requirements.txt:
@@ -39,42 +67,11 @@ base de datos que utilizaremos:
 
     python manage.py migrate
 
+Y para finalizar, vamos a crear un super usuario
+
+    python manage.py createsuperuser
+    
 Por último, ya podremos ejecutar el módulos o módulos seleccionados en la configuración de la
 siguiente manera:
 
     python manage.py runserver
-
-Configurar Postgres (Windows)
------------------------------
-Lo primero es instalar Postgres en Windows, usando un ejecutable que puedes encontra aquí: http://www.enterprisedb.com/products-services-training/pgdownload#windows
-
-Escoge la versión mas nueva disponible para tu sistema operativo. Descarga el instalador, ejecútalo y sigue las instrucciones disponibles aquí http://www.postgresqltutorial.com/install-postgresql/. Toma nota del directorio donde se instaló y el usuario, porque lo necesitarás en el siguiente paso (no olvidar usar el puerto 5432).
-
-Ahora vamos a crear la base de datos y un usuario para que pueda acceder a ella.
-
-Abre la línea de comandos (Inicio → Todos los programas → Accesorios → Linea de comandos)
-Ejecuta la siguiente configuración y presiona enter (Asegúrate de que el la carpeta sea la misma que anotaste cuando estabas instalando con un \bin al final.)
-
-    setx PATH "%PATH%;C:\Program Files\PostgreSQL\9.3\bin"
-
-Cierra y vuelve a abrir la línea de comandos.
-    
-**Crear la base de datos**
-
-Primero, vamos a iniciar la consola de Postgres ejecutando el siguiente comando:
-
-    psql -U <username> -W
-    
-donde username es el nombre de usuario que se usó en la instalación. Después pedirá introducir la contraseña que se puso para ese usuario.
-
-Ahora vamos a crear un usuario para nuestra bbdd con la siguiente linea
-
-    # CREATE USER board WITH PASSWORD 'board';
-    
-Y parala bbdd escribimos lo siguiente 
-
-    # CREATE DATABASE boardDB OWNER board;
-
-Y para finalizar, vamos a crear un super usuario
-
-    python manage.py createsuperuser
