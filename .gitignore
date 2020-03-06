@@ -220,7 +220,7 @@ npm-debug.log
 yarn-error.log
 
 # Visual Studio Code # 
-.vscode/**
+.vscode/* 
 .history
 
 # End of https://www.gitignore.io/api/vuejs,django,python
