@@ -1,11 +1,5 @@
 <header>
-	{% block css %}
-		<link type="text/css" rel="stylesheet"
-			 href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
-		<link type="text/css" rel="stylesheet"
-			 href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
-		<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
-	{% endblock %}
+
 <nav>
 	<ul>
 		<li><a href="/">Inicio</a></li>
@@ -15,12 +9,11 @@
 	</ul>
 </nav>
 
-
-
-{% block vue %}
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="{% static 'scripts/01.js' %}"></script>
-<% endblock %>
-
 </header>
+
+<body>
+	<section class='contenido'>
+		{% block contenido %} {% endblock %}
+	  </section>
+</body>
 

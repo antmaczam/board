@@ -1,0 +1,16 @@
+
+{% extends "base.html" %}
+
+<h1>Bienvenido al Sistema de Recomendacion de Movielens!!!</h1> 
+
+{% block contenido %}
+
+<ul>
+	{% for dato in games %}
+	<li>{{dato.name|capfirst}} - <em>{{dato.price}}€</em> </br>
+	Estado: {{dato.status}} </br>
+	{% empty %}
+	<li>Aún no hay juegos registrados</li>
+	{% endfor %}
+</ul>
+{% endblock %}
