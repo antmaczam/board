@@ -579,13 +579,13 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  background: url('/base/static/img/header.png') ;
   background-size: cover;
+  background: url('../img/header.png');
   height: 180px;
   background-position: center center;
   background-repeat: no-repeat;
-
 }
+
 
 @media (min-width: 576px) {
   .container, .container-sm {
