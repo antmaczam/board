@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+
+{% extends "base.html" %}
+
+<!-- No se por que no va esto -->
+	
+<div id="hola" class="text-center">
+	<h1 style="color:Tomato;">{{mierda}}</h1>
+	</div>
+
+
+{% block content %}
+
+<!-- Aqui hacer bucle por columna para hacer una buena vista-->
+
+<div>
+	
+	<h1 style="color: black; background-color:powderblue; font-size:30px;"> Lista de Juegos </h1></br>
+	</div>
+
+
+	<table>
+	{% for dato in games %}
+
+	<!-- Vamos a introducir  algunos juegos -->
+		
+		<tr>
+			<td><img style="width:150px;height:150px;" src="{{dato.picture}}"/></td>
+		
+		<td> <div><h3>{{dato.name|capfirst}} </h3></div> <em>Precio: {{dato.price}}€</em> </br>
+			Estado: {{dato.status}} </br>
+			<button type="button" class="btn btn-info btn-sm"> Alquilar </button> </br></td>
+		</tr>	
+	{% empty %}
+
+<!-- Hacer Visible esta pagina. -->
+
+	<li>Vaya, parece que no hay juegos</li>
+
+	{% endfor %}
+</table>
+
+<!-- Una vista final de la vista para darle profesionalidad -->
+
+  <div class=" jumbotron footer-baseline text-center">
+			  <span class="kirk-text kirk-text-caption sc-bdVaJa dFybSt" style = "margin:20px">
+				TryOnBoard es la mejor aplicación del mundo para alquilar juegos de mesa. </br>
+				Con nosotros, puedes olvidarte de los problemas a la hora de prestar un juego sin compromiso y seguridad.</br>
+				Conectamos a la gente para que pueda jugar sin limites.
+				</span>
+	</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src= "prueba.js"></script>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+{% endblock %}
+
+</body>
+</html>
