@@ -1,26 +1,31 @@
 <html>
 <head>
-<title>Sistema de Recomendacion - Movielens</title>
+     {% extends "base.html" %}
+     {% load static %}
+     {% block extrahead %}
+          <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css"> 
+     {% endblock %}   
 </head>
 <body>
-{% extends "base.html" %}
-{% block css %}
-    <link type="text/css" rel="stylesheet"
-         href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet"
-         href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
-    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
-{% endblock %}
-<h1>Bienvenido al Sistema de Recomendacion de Movielens!!!</h1> 
+
+{% block content %}
+<style>
+.index-main {
+     background-image: url("{% static 'img/bg-masthead.jpg' %}");
+}   
+</style>
+
+<div class="index-main">
+     <img class="index-icon" src="{% static 'img/icon.png' %}" />
+<h1 class="index-title">¡Bienvenido a la plataforma Try On Board!</h1> 
 <p>
-Se desea construir una pagina web, que permita recomendar a usuarios peliculas en funcion de las puntuaciones que han dado otros usuarios a las peliculas y los gustos de estos.
-Construir el modelo de datos en Django que almacene la informacion siguiente:
-
+     ¡Aquí podrás encontrar juegos de mesa que otra gente alquile o venda cerca de tu zona!
 </p>
-
+</div>
+{% endblock %}
 {% block vue %}
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="{% static 'scripts/01.js' %}"></script>
-<% endblock %>
+{% endblock %}
+
 </body>
 </html>
