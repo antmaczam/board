@@ -16,7 +16,10 @@ class Status(Enum):
     GA = 'Gastado'
     IN = 'Injugable'
 
-#status = (('Pe','Perfecto'),('Fa','Faltan_piezas'),('Ga','Gastado'),('In','Injugable'))
+class Status2(Enum):
+    PE = 'Pendiente'
+    AC = 'Aceptado'
+    RE = 'Rechazado'
 
 class Game(models.Model):
     name = models.CharField(max_length=50, default='')
@@ -26,14 +29,19 @@ class Game(models.Model):
     picture = models.CharField(max_length=500,validators=[URLValidator])
     #rent
     address = models.CharField(max_length=100, default='')
-    owner = models.CharField(max_length=50, default='admin')
+    owner = models.CharField(max_length=50, default='owner')
     #category
     #reviews
 
     @classmethod
     def get_by_id(cls, cid):
-        return Game.objects.get(pk=cid)
-        
+        return Game.objects.get(pk=cid)    
 
     def __unicode__(self):
         return '{}-{}'.format(self.get_name(),self.price)
+
+class Rent(models.Model):
+    ticker = models.CharField(max_length=8, default='ABC-1234')
+    game = models.ForeignKey(Game,on_delete=models.CASCADE)
+    user = models.CharField(max_length=50, default='user')
+    status = models.CharField(max_length=20,choices=[(str(x),x.value) for x in Status2])
