@@ -15,17 +15,25 @@
     <style>
       
     .container-fluid {
+        height: 20%;
         background-size: cover;
         background-repeat: no-repeat;
-        background: url('{% static "img/header.png" %}');
+        background-image: url('{% static "img/header.png" %}');
     }
+
+    body {
+      background-size: cover;
+      background-image: url("{% static 'img/bg-masthead.jpg' %}");
+
+    }
+
     </style>
 
 
     <div class="container-fluid h-300 text-center py-3">
       </div>
 
-      <nav class="navbar navbar-expand-sm navbar-light py-0"  style="background-color: #6D65D3;" data-toggle="affix">
+      <nav id="myHeader" class="navbar navbar-expand-sm navbar-light navbar-fixed-top py-0"  style="background-color: #6D65D3;" data-toggle="affix">
         <div class="mx-auto">
             
             <div class="collapse navbar-collapse text-center" >
@@ -51,7 +59,7 @@
     </nav>
     {% block extrahead %}{% endblock %}
   </head>
-  <body style="background-color: #b4b4b4;">
+  <body>
       {% block content %}
       {% endblock %}
 
@@ -61,11 +69,23 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      window.onscroll = function() {myFunction()};
+      var header = document.getElementById("myHeader");
+      var sticky = header.offsetTop;
+      function myFunction() {
+        if (window.pageYOffset > sticky) {
+          header.classList.add("sticky");
+        } else {
+          header.classList.remove("sticky");
+        }
+      }
+    </script> 
+    <footer class="page-footer font-small blue fixed-bottom">
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3" style="background-color: #6D65D3 ;">© 2020 Copyright: TryOnBoard
+      </div>
+    
+    </footer>
   </body>
-  <footer class="page-footer font-small blue fixed-bottom">
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3" style="background-color: #6D65D3 ;">© 2020 Copyright: TryOnBoard
-    </div>
-  
-  </footer>
 </html>
