@@ -12,11 +12,15 @@ python:
 - '3.6'
 install:
 - pip install -r requirements.txt
+- pip install codacy-coverage
 script:
 - cd board
 - python ./manage.py makemigrations
 - python ./manage.py migrate --run-syncdb
 - python ./manage.py test --keepdb
+- coverage run --branch --source=. ./manage.py test --keepdb
+- coverage xml 
+- python-codacy-coverage -r coverage.xml
 branches:
   only:
   - develop
