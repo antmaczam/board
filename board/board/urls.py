@@ -25,10 +25,16 @@ from rent import views as rent_views
 from base import views as base_views
 
 urlpatterns = [
+    #Main
     path('admin/', admin.site.urls),
     path('', views.index),
+    path('login', user_views.login),
+    path('logout', user_views.logout),
     path('base/', views.base),
-    re_path(r'profile/(?P<id_user>\d+)',user_views.profile),
+    #Rent
     path('games', rent_views.games_list),
     re_path(r'gameDetail/(?P<id_game>\d+)',rent_views.games_detail),
+    #User
+    re_path(r'profile/(?P<id_user>\d+)',user_views.profile),
+    
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

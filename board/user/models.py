@@ -13,5 +13,6 @@ class User(models.Model):
     picture = models.CharField(max_length=500, validators=[URLValidator])
     rate = models. CharField(max_length=10, validators=[validate_comma_separated_integer_list])
     
+    
     def __str__(self):
         return self.name
