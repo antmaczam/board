@@ -2,6 +2,8 @@ from django.db import models
 from enum import Enum, auto
 from django.core.validators import URLValidator, MaxValueValidator, MinValueValidator
 
+from user.models import User
+
 # Create your models here.
 """
 class Category(Enum):
@@ -29,7 +31,7 @@ class Game(models.Model):
     picture = models.CharField(max_length=500,validators=[URLValidator])
     #rent
     address = models.CharField(max_length=100, default='')
-    owner = models.CharField(max_length=50, default='owner')
+    owner = models.ForeignKey(User,on_delete=models.CASCADE)
     #category
     #reviews
 
@@ -40,8 +42,11 @@ class Game(models.Model):
     def __unicode__(self):
         return '{}-{}'.format(self.get_name(),self.price)
 
+    def __str__(self):
+        return self.name
+
 class Rent(models.Model):
     ticker = models.CharField(max_length=8, default='ABC-1234')
     game = models.ForeignKey(Game,on_delete=models.CASCADE)
-    user = models.CharField(max_length=50, default='user')
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     status = models.CharField(max_length=20,choices=[(str(x),x.value) for x in Status2])
