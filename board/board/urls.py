@@ -34,6 +34,7 @@ urlpatterns = [
     #Rent
     path('games', rent_views.games_list),
     re_path(r'gameDetail/(?P<id_game>\d+)',rent_views.games_detail),
+    re_path(r'rent/(?P<id_game>\d+)',rent_views.rent_game),
     #User
     re_path(r'profile/(?P<id_user>\d+)',user_views.profile),
     

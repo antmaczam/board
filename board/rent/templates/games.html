@@ -35,7 +35,7 @@
 		
 		<td> <div><h3>{{dato.name|capfirst}} </h3></div> <em>Precio: {{dato.price}}€</em> </br>
 			Estado: {{dato.status}} </br>
-			<button type="button" class="btn btn-info btn-sm"> Alquilar </button> </br></td>
+			<a href="/rent/{{dato.id}}" type="button" class="btn btn-info btn-sm"> Alquilar</a></br></td>
 		</tr>	
 	{% empty %}
 
