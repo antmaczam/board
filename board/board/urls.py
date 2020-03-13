@@ -20,13 +20,18 @@ from base import views as base_views
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
+from rent.views import new_game
+from rent import forms as rent_forms
+from rent.forms import NewGame
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('games', rent_views.games_list),
-    re_path(r'gameDetail/(?P<id_game>\d+)',rent_views.games_detail),
+    path('gameDetail/<int:pk>/', rent_views.games_detail, name='games_detail'),
     path('',base_views.index),
     path('base/', base_views.base),
+    path('newgame', rent_views.new_game),
+    path('gameDetail/<int:pk>/edit/', rent_views.edit_game, name='new_game')
+    
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
