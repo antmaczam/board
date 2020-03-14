@@ -29,10 +29,10 @@
 
     </style>
 
-
+<a href="">
     <div class="container-fluid h-300 text-center py-3">
       </div>
-
+    </a>
       <nav id="myHeader" class="navbar navbar-expand-sm navbar-light navbar-fixed-top py-0"  style="background-color: #6D65D3;" data-toggle="affix">
         <div class="mx-auto">
             
@@ -42,20 +42,23 @@
                         <a class="nav-link" href="#"><b>Tienda</b></a>
                     </li>
                     <li class="nav-item px-5">
-                        <a class="nav-link" href="#"><b>Mis productos</b></a>
+                        <a class="nav-link" href="/games"><b>Juegos</b></a>
                     </li>
                     <li class="nav-item px-5">
                         <a class="nav-link" href="#"><b>Carrito</b></a>
                     </li>
                     <li class="nav-item px-5">
-                        <a class="nav-link" href="#"><b>Perfil</b></a>
+                        <a class="nav-link" href="/profile/"><b>Perfil</b></a>
                     </li>
+                    {% if not request.user.is_authenticated %}
                     <li class="nav-item px-5">
                         <a class="nav-link" href="/login"><b>Iniciar sesión</b></a>
                     </li>
+                    {% else %}
                     <li class="nav-item px-5">
                         <a class="nav-link" href="/logout"><b>Cerrar sesión</b></a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -84,7 +87,7 @@
         }
       }
     </script> 
-    <footer class="page-footer font-small blue fixed-bottom">
+    <footer class="page-footer font-small blue">
       <!-- Copyright -->
       <div class="footer-copyright text-center py-3" style="background-color: #6D65D3 ;">© 2020 Copyright: TryOnBoard
       </div>
