@@ -33,5 +33,5 @@ def rent_game(request, id_game):
     rent = Rent(ticker=ticker, game=dato, user= user, status='pending')
     rent.save()
     games = Game.objects.all()
-    return render(request, 'games.html', {'games': games})
+    return render(request, 'index.html', {'games': games})
 
