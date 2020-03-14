@@ -1,7 +1,7 @@
 [
   {
 		"fields": {
-			"password": "1234567890",
+			"password": "pbkdf2_sha256$150000$40$mbu3EIOy+CJGurks5j21JugGIq6arcSgON2NUt0MTXM=",
 			"last_login": null,
 			"is_superuser": false,
 			"username": "User1",
@@ -24,7 +24,7 @@
 	},
 	{
 		"fields": {
-			"password": "1234567890",
+			"password": "pbkdf2_sha256$150000$40$mbu3EIOy+CJGurks5j21JugGIq6arcSgON2NUt0MTXM=",
 			"last_login": null,
 			"is_superuser": false,
 			"username": "User2",
@@ -47,7 +47,7 @@
 	},
 	{
 		"fields": {
-			"password": "usuario",
+			"password": "pbkdf2_sha256$150000$40$U+8+6EJfQOFoP2wK/VusIFLMRiphC7SzPC0Q12n3XHQ=",
 			"last_login": "2019-11-11T22:00:00Z",
 			"is_superuser": false,
 			"username": "usuario",
@@ -70,7 +70,7 @@
 	},
 	{
 		"fields": {
-			"password": "1234567890",
+			"password": "pbkdf2_sha256$150000$40$mbu3EIOy+CJGurks5j21JugGIq6arcSgON2NUt0MTXM=",
 			"last_login": "2019-11-11T22:00:00Z",
 			"is_superuser": false,
 			"username": "Juan",
@@ -93,7 +93,7 @@
 	},
 	{
 		"fields": {
-			"password": "1234567890",
+			"password": "pbkdf2_sha256$150000$40$mbu3EIOy+CJGurks5j21JugGIq6arcSgON2NUt0MTXM=",
 			"last_login": "2019-11-11T22:00:00Z",
 			"is_superuser": false,
 			"username": "Pedro",
@@ -116,7 +116,7 @@
 	},
 	{
 		"fields": {
-			"password": "1234567890",
+			"password": "pbkdf2_sha256$150000$40$mbu3EIOy+CJGurks5j21JugGIq6arcSgON2NUt0MTXM=",
 			"last_login": "2019-11-11T22:00:00Z",
 			"is_superuser": false,
 			"username": "Maria",
@@ -139,7 +139,7 @@
 	},
 	{
 		"fields": {
-			"password": "1234567890",
+			"password": "pbkdf2_sha256$150000$40$mbu3EIOy+CJGurks5j21JugGIq6arcSgON2NUt0MTXM=",
 			"last_login": "2019-11-11T22:00:00Z",
 			"is_superuser": false,
 			"username": "Paco",
