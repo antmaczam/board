@@ -245,7 +245,7 @@
 	{
 		"fields": {
 			"ticker": "ABC-1234",
-			"status": "Pendiente",
+			"rentable": true,
 			"user": 16,
 			"game": 22
 		},

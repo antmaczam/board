@@ -11,10 +11,10 @@ class GameAdmin(admin.ModelAdmin):
     actions = []
 
 class RentAdmin(admin.ModelAdmin):
-    list_display = ('ticker', 'user', 'status',)
-    list_filter = ('ticker', 'user', 'status',)
+    list_display = ('ticker', 'user', 'rentable',)
+    list_filter = ('ticker', 'user', 'rentable',)
 
-    search_fields = ('ticker', 'user', 'status',) 
+    search_fields = ('ticker', 'user', 'rentable',) 
 
     actions = []
 
