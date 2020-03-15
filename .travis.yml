@@ -20,7 +20,7 @@ script:
 - python ./manage.py migrate --run-syncdb
 - python ./manage.py test --keepdb
 - coverage run --branch --source=. ./manage.py test --keepdb
-- coverage xml 
+- coverage xml
 - python-codacy-coverage -r coverage.xml
 branches:
   only:
@@ -29,7 +29,7 @@ deploy:
   provider: heroku
   app: tryonboard-sprint1
   strategy: git
-  on:
-    branch: develop
   api_key:
-    secure: pA8Mb3i99bmxUx3Npnnc7ljZ4dnoPpV6MUGH4JgOEMNr5rzKi3h6WHMRcyT+hIvOaSV7hQAaMBCqu+xs89JMf7GtaCbx9EqFnCOO3iDQNsTjLFTOuYkpYuEHPh+nY1dqp1DzcUJwHzINWu1S/IsFXqYsJjGNz7UQ8CZL9EwWxMHx3+suvRG2alEAlsBIomrgXjwt2fiIDlTe0g0sTqOPWWCVMEkPAA7xEB2bium7xLv8+37OjIiRsUXb2leHW27yUbvFdCXNLYTDLQtTUvWqhknw7ZhYmPjuhmhNSe3pFDQyKQp+aUTvZEVUDe9hE3xByheyw438cSEvH8h8kNgLbrI6eA5nv7ityvNT9+L8mZL4Ym3Z90rW3UIJWeNVEUvnphsqr7nofo1Wt36rz1YE7QiOWKSW46XWQk9OqooQEzYZ7/pCtH9HUtV2dtxi4gf/0B6iQOvhWSEbRgT+DWSd//VfLuAVp4z9cIreyc3OrfSEfZ77FF8hRJpZWDWcNX1J8Dv2Vf8roADkTtMWpVrm1Exp4nudW9bUEjAhIIWSeUFIAhhbZSUKCi72240/wXRr0uh+AI/xISnzbNZYMfAz1xn0WUxX2QNdgIrDLtpIKlSdwyN5CA+lDZTg8+6TQqyiScWicrpVXWki5p3Hf9QDpzdUFcDVDYtKCEM4PXKvD9o=
+    secure: wv8RwHfaI6w9YvthCi5Tb+tu5vRGPsH61e5Az8ZK8ZSWTF7cxFfOngbV6KcpgQ1erngr7JrV7+kt9DjFk57wKGma2eTvJ1YJBHvZKUBdIxGqmYO9mOauAwjdY4WtKfc619tBX5yNbcRA5BwZopv8E7CwxZyRd/qjFqtS+N+9yCmpopXuph7eDMa5lAvI5CXkHgkMcQZgG6PPk9wtTNQMcmlKih+ik4rNx+D7IGXI/YgK8PUvOWDcDQR9HOsqbvcekdrN/eZdpFvVgxbY0+wZo+yOWZ0qCRpghw9FMMRUNOKxi6SczZKPANFMBGky78D/wc1ECD4wL7Rz3UpX2m3nPhqAImhce89AxXxdD3xhcNn0mQ/QUoaRI4Mv41pMn/+i4dZHQQCyLi6uwGZwdeNyEnxDhN4NhBlSfkto04YNHjpAXNfocGLVEXYGRuVIljXo/5uRBJ1ZTZXJnypOrlB4X54feB51v6myvAYf6kEKW2stqL067IP/FG4u01uVEALQBmFvBumLY/lyBIV/pTui5EUaAqL+WWaYJtmvgxs8TscBBqZ/ZpImVi5T/1joTq4mwHzw44SF+ILHahKSX4/NTPopSJgCepaHjt+Ga7fArio6CXxSZqUSKjTk7WYq2LszYH5Hy5sEkz9h/5L3QTEOplV2C6bYS6VhJsGVHWRbVjg=
+  on: 
+    branch: develop
