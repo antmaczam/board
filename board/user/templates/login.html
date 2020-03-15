@@ -1,9 +1,28 @@
-<h2>Iniciar sesión</h2>
+<html>
+<head>
+     {% extends "base.html" %}
+     {% load static %}
+     {% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/style_user.css' %}" type="text/css"> 
+    {% endblock %}
+</head>
+<body>
 
-<form method="POST">
-    {{ form.as_p }}
-    {% csrf_token %}
-    <button type="submit">Login</button>
-</form>
+{% block content %}
 
-<hr />
+<div class="form-main">
+    <h2 class="form-title">Iniciar sesión</h2> 
+    <form method="POST">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <br/>
+        <button type="submit" class="form-button">Entrar</button>
+    </form>
+</div>
+{% endblock %}
+{% block vue %}
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+ .index-main{
+    color: red;
+    padding-top: 100px;
+  }
+  
+  .index-main .index-title{
+    margin-top: 1000px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 120px;
+  }
+  
+ 
+  
