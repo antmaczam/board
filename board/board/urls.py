@@ -26,6 +26,9 @@ from reviews import views as reviews_views
 from base import views as base_views
 
 
+from rent.views import new_game
+from rent import forms as rent_forms
+from rent.forms import NewGame
 urlpatterns = [
     #Main
     path('admin/', admin.site.urls),
@@ -35,11 +38,14 @@ urlpatterns = [
     path('base/', views.base),
     #Rent
     path('games', rent_views.games_list),
-    re_path(r'gameDetail/(?P<id_game>\d+)',rent_views.games_detail),
     re_path(r'rent/(?P<id_game>\d+)',rent_views.rent_game),
     #User
     re_path(r'profile/(?P<id_user>\d+)',user_views.profile),
     #Review
     re_path(r'review/(?P<id_user>\d+)',reviews_views.create_review),
     re_path(r'comments/(?P<id_user>\d+)',reviews_views.list_comments),
+    path('gameDetail/<int:pk>/', rent_views.games_detail, name='games_detail'),
+    path('newgame', rent_views.new_game),
+    path('gameDetail/<int:pk>/edit/', rent_views.edit_game, name='new_game')
+
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
