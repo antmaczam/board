@@ -22,7 +22,9 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from base import views
 from user import views as user_views
 from rent import views as rent_views
+from reviews import views as reviews_views
 from base import views as base_views
+
 
 urlpatterns = [
     #Main
@@ -37,5 +39,6 @@ urlpatterns = [
     re_path(r'rent/(?P<id_game>\d+)',rent_views.rent_game),
     #User
     re_path(r'profile/(?P<id_user>\d+)',user_views.profile),
-    
+    #Review
+    re_path(r'review/(?P<id_user>\d+)',reviews_views.create_review),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
