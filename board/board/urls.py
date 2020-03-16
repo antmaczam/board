@@ -36,16 +36,18 @@ urlpatterns = [
     path('login', user_views.login),
     path('logout', user_views.logout),
     path('base/', views.base),
+
     #Rent
     path('games', rent_views.games_list),
-    re_path(r'rent/(?P<id_game>\d+)',rent_views.rent_game),
-    #User
-    re_path(r'profile/(?P<id_user>\d+)',user_views.profile),
-    #Review
-    re_path(r'review/(?P<id_user>\d+)',reviews_views.create_review),
-    re_path(r'comments/(?P<id_user>\d+)',reviews_views.list_comments),
     path('gameDetail/<int:pk>/', rent_views.games_detail, name='games_detail'),
     path('newgame', rent_views.new_game),
-    path('gameDetail/<int:pk>/edit/', rent_views.edit_game, name='new_game')
+    path('gameDetail/<int:pk>/edit/', rent_views.edit_game, name='new_game'),
+
+    #User
+    re_path(r'profile/(?P<id_user>\d+)',user_views.profile),
+
+    #Review
+    re_path(r'review/(?P<id_user>\d+)',reviews_views.create_review),
+    re_path(r'comments/(?P<id_user>\d+)',reviews_views.list_comments)
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
