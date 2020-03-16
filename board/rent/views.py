@@ -1,5 +1,5 @@
 from django.shortcuts import render ,  get_object_or_404
-from rent.models import Game
+from rent.models import Game , Rent
 from django.conf import settings
 from rent.forms import NewGame
 from django.shortcuts import redirect
@@ -10,7 +10,9 @@ def games_list(request):
     games = Game.objects.all()
     return render(request,'games.html',{'games':games})
 
-
+def rents_list(request):
+    rents  = Rent.objects.filter(user = request.user)
+    return render(request,'rents.html',{'rents':rents})
 
 
 def games_detail(request,pk):

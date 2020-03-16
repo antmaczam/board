@@ -26,6 +26,7 @@ from rent.forms import NewGame
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('games', rent_views.games_list),
+    path('rents', rent_views.rents_list),
     path('gameDetail/<int:pk>/', rent_views.games_detail, name='games_detail'),
     path('',base_views.index),
     path('base/', base_views.base),
