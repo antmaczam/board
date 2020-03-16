@@ -41,4 +41,5 @@ urlpatterns = [
     re_path(r'profile/(?P<id_user>\d+)',user_views.profile),
     #Review
     re_path(r'review/(?P<id_user>\d+)',reviews_views.create_review),
+    re_path(r'comments/(?P<id_user>\d+)',reviews_views.list_comments),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -58,3 +58,8 @@ def create_review(request, id_user):
             else:
                 return render(request, "createReview.html", {'form': form})
     return render(request, "createReview.html", {'form': form})
+
+def list_comments(request, id_user):
+    toUser = get_object_or_404(User, pk=id_user)
+    list_comments = Comment.objects.filter(toUser=toUser)
+    return render(request, "comments.html", {'comments': list_comments})

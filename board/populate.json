@@ -251,5 +251,42 @@
 		},
 		"model": "rent.rent",
 		"pk": 23
+	},
+	{
+		"fields": {
+			"fromUser": 16,
+			"toUser": 17,
+			"comment": "Comentarioooo"
+		},
+		"model": "reviews.comment",
+		"pk": 25
+	},
+	{
+		"fields": {
+			"fromUser": 16,
+			"toUser": 17,
+			"rate": 4
+		},
+		"model": "reviews.valoration",
+		"pk": 26
+	},
+	{
+		"fields": {
+			"fromUser": 17,
+			"toUser": 16,
+			"comment": "Respuestaa"
+		},
+		"model": "reviews.comment",
+		"pk": 27
+	},
+	{
+		"fields": {
+			"fromUser": 17,
+			"toUser": 16,
+			"rate": 3
+		},
+		"model": "reviews.valoration",
+		"pk": 28
 	}
+
 ]
