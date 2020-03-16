@@ -1,12 +1,10 @@
-<!DOCTYPE html>
 <html>
 <head>
 
     {% extends "base.html" %}
     {% load static %}
 
-    <link rel="stylesheet" type="text/css"
-    href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/rent_style.css' %}">
 
 
 </head>
@@ -28,9 +26,9 @@
 
     <div><h3  class ="well well-sm">Subida de Juego: </h3> </div>
      <div>      
-            <form method="POST" class="NewGame" style=" margin: 5px;
-            padding: 5px">{% csrf_token %}
-                {{ form.as_p }}
+            <form method="POST" class="NewGame" style=" margin: 5px; padding: 5px">
+              {% csrf_token %}
+              {{ form.as_p }}
             </form>
       </div>
 
