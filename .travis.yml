@@ -2,7 +2,7 @@ dist: xenial
 services:
 - postgresql
 addons:
-  postgresql: '12.2'
+  postgresql: '9.4'
 before_script:
 - psql -U postgres -c "create user board password 'board'"
 - psql -U postgres -c "create database boardDB owner board"
@@ -30,4 +30,4 @@ deploy:
   app: tryonboard-sprint1
   strategy: git
   api_key:
-    secure: wv8RwHfaI6w9YvthCi5Tb+tu5vRGPsH61e5Az8ZK8ZSWTF7cxFfOngbV6KcpgQ1erngr7JrV7+kt9DjFk57wKGma2eTvJ1YJBHvZKUBdIxGqmYO9mOauAwjdY4WtKfc619tBX5yNbcRA5BwZopv8E7CwxZyRd/qjFqtS+N+9yCmpopXuph7eDMa5lAvI5CXkHgkMcQZgG6PPk9wtTNQMcmlKih+ik4rNx+D7IGXI/YgK8PUvOWDcDQR9HOsqbvcekdrN/eZdpFvVgxbY0+wZo+yOWZ0qCRpghw9FMMRUNOKxi6SczZKPANFMBGky78D/wc1ECD4wL7Rz3UpX2m3nPhqAImhce89AxXxdD3xhcNn0mQ/QUoaRI4Mv41pMn/+i4dZHQQCyLi6uwGZwdeNyEnxDhN4NhBlSfkto04YNHjpAXNfocGLVEXYGRuVIljXo/5uRBJ1ZTZXJnypOrlB4X54feB51v6myvAYf6kEKW2stqL067IP/FG4u01uVEALQBmFvBumLY/lyBIV/pTui5EUaAqL+WWaYJtmvgxs8TscBBqZ/ZpImVi5T/1joTq4mwHzw44SF+ILHahKSX4/NTPopSJgCepaHjt+Ga7fArio6CXxSZqUSKjTk7WYq2LszYH5Hy5sEkz9h/5L3QTEOplV2C6bYS6VhJsGVHWRbVjg=
+    secure: fsaAYBNddNUe71mS3hjffzDTufGmEOlPBt6GgjQOdw12IC5nFjfRe1/dUXd0eY+sMxb0Y1YSw80sEtsRFxuXs/AxiEC9+vIeaw77IOwnRJaHx/qFnEw4MONc+YDWVcnvRCxf7/ATZBqfkwtvmqCzBuWMvpTzCxd/DT96LVzGHzQetokfdCXPKrCLQIHjCrFfie342jW6ybOKdkZWAJtEJXsQs8ENo4EQrI/HGs6Gz/ih0aAC7nVj4LqQ+a0rbdqoinf27CUJk4nol85D5yTX5oMPFu1SCf37kNaNhpc87rSGQDfLCCum10WgiiiQsxT9Ykca/PLV7WHglxqgO7jfo0iyVL4C/8hvQ0ACY/vaF1U51WKd+a0OlhPHQSfn9u2vYzH7e+7pIl4cRKxt95mPkDqu1dvce5tpIMpL73r3PgSUa/wOT+FR/OPDE0to0FRBCTRah7tpTLFEJI817xnDk+Xd68bsAkYXWJscK1YCAii38YxuprPUpkp5laXp3GNbvTh6nmMKA/Sn5H+vzCLBvLRLa4ek/Qa/E/BelalMbOAtfaWF2dpW7812hnl690BHJIuJvB8EmlOFxovptQFnHjW46Yy0IO2ypSqnXH4SNoZdPVDq59g2xmXHXoEjcjLeybtn/SsjcAO0XH+lZE323ywE3qSjIzo5vHGnsHasUYo=
