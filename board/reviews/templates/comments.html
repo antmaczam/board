@@ -1,43 +1,48 @@
-<!DOCTYPE html>
+
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		{% extends "base.html" %}
+		{% load static %}
+		{% block extrahead %}
+	   <link rel="stylesheet" href="{% static 'css/style_user.css' %}" type="text/css"> 
+	   {% endblock %}
 </head>
 <body>
 
-{% extends "base.html" %}
+
 {% block content %}
 
 <!-- Aqui hacer bucle por columna para hacer una buena vista-->
 
-<div>
+<div class="container">
 
-	<h1 style="color: black; background-color:powderblue; font-size:30px;"> Lista de comentarios </h1></br>
+	<h2 class="text-center"> Lista de comentarios </h1></br>
 	</div>
-	<table>
+	<table >
 	{% for dato in comments %}
 
 		<tr>
-            <td> <div><h3>{{dato.comment}} </h3></div> <em>Usuario: {{dato.fromUser}}</em> </br> </td>
+            <td> <div><h3 class="text-center">{{dato.comment}} </h3></div> <em>Usuario: {{dato.fromUser}}</em> </br> </td>
 	     </br>
 		</tr>
 	{% empty %}
 
 <!-- Hacer Visible esta pagina. -->
 
-	<li>Vaya, parece que no hay comentarios</li>
+	<li class="text-center">Vaya, parece que no hay comentarios</li>
 
 	{% endfor %}
 </table>
-
+  {% block vue %}
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  {% endblock %}
   <script src= "prueba.js"></script>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
 
 {% endblock %}
+
+</body>
+</html>

@@ -55,7 +55,7 @@ def rent_game(request, id_game):
     ramdomLetters = ''.join(random.choice(letters) for i in range(3))
     ramdomNumber = ''.join(random.choice(digits) for i in range(4))
     ticker = ramdomLetters + '-' + ramdomNumber
-    rent = Rent(ticker=ticker, game=dato, user= user, status='pending')
+    rent = Rent(ticker=ticker, game=dato, user= user, rentable=False)
     rent.save()
     games = Game.objects.all()
     return render(request, 'games.html', {'games': games})
