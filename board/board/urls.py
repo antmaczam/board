@@ -29,6 +29,7 @@ from base import views as base_views
 from rent.views import new_game
 from rent import forms as rent_forms
 from rent.forms import NewGame
+
 urlpatterns = [
     #Main
     path('admin/', admin.site.urls),
@@ -38,7 +39,7 @@ urlpatterns = [
     path('base/', views.base),
 
     #Rent
-    path('games', rent_views.games_list),
+    path('games/', rent_views.games_list),
     path('gameDetail/<int:pk>/', rent_views.games_detail, name='games_detail'),
     path('newgame', rent_views.new_game),
     path('gameDetail/<int:pk>/edit/', rent_views.edit_game, name='new_game'),

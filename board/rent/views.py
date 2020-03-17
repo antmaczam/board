@@ -19,13 +19,14 @@ def games_list(request):
 def games_detail(request,pk):
      dato = get_object_or_404(Game, pk=pk)
      return render(request,'gameDetail.html', {'name':dato.name, 'description':dato.description,'price': dato.price ,
-      'status': dato.status,'picture' : dato.picture,'owner': dato.owner })
+      'status': dato.status,'picture' : dato.picture,'owner': dato.owner, 'id':dato.id })
 
 def new_game(request):
     if request.method == "POST":
         form = NewGame(request.POST)
         if form.is_valid():
             Game = form.save(commit=False)
+            Game.owner = request.user
 
             Game.save()
             return redirect('/gameDetail/{}'.format(Game.id))
