@@ -5,7 +5,7 @@ addons:
   postgresql: '9.4'
 before_script:
 - psql -U postgres -c "create user board password 'board'"
-- psql -U postgres -c "create database test_boardDB owner board"
+- psql -U postgres -c "create database boardDB owner board"
 - psql -U postgres -c "ALTER USER board CREATEDB"
 language: python
 python:
@@ -13,7 +13,6 @@ python:
 install:
 - pip install -r requirements.txt
 - pip install codacy-coverage
-- pip install coverage
 script:
 - cd board
 - python ./manage.py makemigrations
