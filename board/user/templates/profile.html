@@ -1,0 +1,59 @@
+
+<html>
+<head>
+     {% extends "base.html" %}
+     {% load static %}
+     {% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/style_user.css' %}" type="text/css"> 
+    {% endblock %}
+
+<style>
+.container{
+    padding:20%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.container .img{
+    text-align:right;
+}
+.container .details{
+    border-left:3px solid #ded4da;
+}
+.container .details p{
+    font-size:15px;
+    font-weight:bold;
+}
+</style>    
+</head>
+
+<body> 
+
+{% block content %}
+
+<!-- A ver puedes centrar esto Juan-->
+<div class="d-inline-flex justify-content-center my-5 py-4 px-4" style="background-color: #6D65D3; margin-left: 35%;">
+    <div class="row mx-auto  ">
+      <div class="col-6 img">
+        <img  class="rounded-circle float-right"src="https://cdn.discordapp.com/attachments/686252510545182730/689181806754660352/perfildeusuario.png"  alt="" >
+      </div>
+      <div class="col-md-6 details text-left" style="color:whitesmoke;">
+
+        <h5 class="text-left">{{user.first_name}} {{user.last_name}} </h5>
+        <small>Sevilla, España</small>
+        <br>
+        <br>
+        <h5>Valoración: {{user.rate}}</h5>
+        <h5>{{user.bio}}</h5>
+        <a href="/comments/{{user.id}}" style="color:white; text-decoration:underline;">Ver mis comentarios</a>
+
+        
+      </div>
+    </div>
+</div>
+<a href= "/" class="btn btn-info btn-sm" style="border-radius: 8px; margin-left: 45%">Volver</a> </br></td>
+
+{% endblock %}
+
+</body>
+
+</html>

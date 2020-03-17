@@ -1,3 +1,51 @@
 from django.db import models
+from enum import Enum, auto
+from django.core.validators import URLValidator, MaxValueValidator, MinValueValidator
+
+from user.models import User
 
 # Create your models here.
+
+class Status(Enum):
+    PE = 'Perfecto'
+    FA = 'Faltan piezas'
+    GA = 'Gastado'
+    IN = 'Injugable'
+
+class Game(models.Model):
+    name = models.CharField(max_length=50, default='')
+    description = models.TextField(max_length=500, default='')
+    status = models.CharField(max_length=20,choices=[(str(x),x.value) for x in Status])
+    price = models.FloatField(default=0.0)
+    picture = models.CharField(max_length=500,validators=[URLValidator])
+    address = models.CharField(max_length=100, default='')
+    owner = models.ForeignKey(User,on_delete=models.CASCADE)
+
+    @classmethod
+    def get_by_id(cls, cid):
+        return Game.objects.get(pk=cid)    
+
+    def __unicode__(self):
+        return '{}-{}'.format(self.name,self.price)
+
+    def __str__(self):
+        return self.name
+
+    def is_rentable(self):
+        return Rent.objects.get(game=self).rentable
+
+class Rent(models.Model):
+    ticker = models.CharField(max_length=8, default='ABC-1234')
+    game = models.ForeignKey(Game,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    rentable = models.BooleanField(default=True)
+
+    @classmethod
+    def get_by_id(cls, cid):
+        return Rent.objects.get(pk=cid) 
+    
+    def __unicode__(self):
+        return '{}[{}]'.format(self.ticker,self.game)
+
+    def __str__(self):
+        return self.ticker

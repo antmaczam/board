@@ -1,0 +1,49 @@
+#logo {
+  width: 30%;
+}
+
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px;
+}
+
+.index-main{
+  height:100%;
+  color: white;
+  background-size: cover;
+}
+
+.index-main .index-title{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 120px;
+}
+
+.index-main .index-icon {
+  margin-top: 100px;
+  margin-left: 47%;
+  height: 50px;
+  width: 50px;
+}
+
+
+p {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 120px;
+}

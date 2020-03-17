@@ -1,0 +1,34 @@
+dist: xenial
+services:
+- postgresql
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -U postgres -c "create user board password 'board'"
+- psql -U postgres -c "ALTER ROLE board superuser"
+- psql -U postgres -c "create database boardDB owner board"
+- psql -U postgres -c "ALTER USER board CREATEDB"
+language: python
+python:
+- '3.6'
+install:
+- pip install -r requirements.txt
+- pip install codacy-coverage
+- pip install coverage
+script:
+- cd board
+- python ./manage.py makemigrations
+- python ./manage.py migrate --run-syncdb
+- python ./manage.py test --keepdb
+- coverage run --branch --source=. ./manage.py test --keepdb
+- coverage xml
+- python-codacy-coverage -r coverage.xml
+branches:
+  only:
+  - master
+deploy:
+  provider: heroku
+  app: tryonboard-sprint1
+  strategy: git
+  api_key:
+    secure: fsaAYBNddNUe71mS3hjffzDTufGmEOlPBt6GgjQOdw12IC5nFjfRe1/dUXd0eY+sMxb0Y1YSw80sEtsRFxuXs/AxiEC9+vIeaw77IOwnRJaHx/qFnEw4MONc+YDWVcnvRCxf7/ATZBqfkwtvmqCzBuWMvpTzCxd/DT96LVzGHzQetokfdCXPKrCLQIHjCrFfie342jW6ybOKdkZWAJtEJXsQs8ENo4EQrI/HGs6Gz/ih0aAC7nVj4LqQ+a0rbdqoinf27CUJk4nol85D5yTX5oMPFu1SCf37kNaNhpc87rSGQDfLCCum10WgiiiQsxT9Ykca/PLV7WHglxqgO7jfo0iyVL4C/8hvQ0ACY/vaF1U51WKd+a0OlhPHQSfn9u2vYzH7e+7pIl4cRKxt95mPkDqu1dvce5tpIMpL73r3PgSUa/wOT+FR/OPDE0to0FRBCTRah7tpTLFEJI817xnDk+Xd68bsAkYXWJscK1YCAii38YxuprPUpkp5laXp3GNbvTh6nmMKA/Sn5H+vzCLBvLRLa4ek/Qa/E/BelalMbOAtfaWF2dpW7812hnl690BHJIuJvB8EmlOFxovptQFnHjW46Yy0IO2ypSqnXH4SNoZdPVDq59g2xmXHXoEjcjLeybtn/SsjcAO0XH+lZE323ywE3qSjIzo5vHGnsHasUYo=
