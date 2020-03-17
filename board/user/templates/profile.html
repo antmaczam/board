@@ -40,16 +40,16 @@
 
         <h5 class="text-left">{{user.first_name}} {{user.last_name}} </h5>
         <small>Sevilla, España</small>
-      <br>
-      <br>
+        <br>
+        <br>
         <h5>Valoración: {{user.rate}}</h5>
         <h5>{{user.bio}}</h5>
-        <a class=""
+        <a href="/reviews/{{user.id}}">Ver mis comentarios</a>
 
         
       </div>
     </div>
-  </div>
+</div>
 
 {% endblock %}
 
