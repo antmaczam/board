@@ -40,10 +40,7 @@
             <div class="collapse navbar-collapse text-center" >
                 <ul class="navbar-nav nav-fill">
                     <li class="nav-item px-5">
-                        <a class="nav-link" href="/games"><b>Juegos</b></a>
-                    </li>
-                    <li class="nav-item px-5">
-                        <a class="nav-link" href="#"><b>Carrito</b></a>
+                        <a class="nav-link" href="/games/"><b>Juegos</b></a>
                     </li>
                     <li class="nav-item px-5">
                         <a class="nav-link" href="/profile/{{request.user.id}}"><b>Perfil</b></a>
@@ -54,7 +51,7 @@
                     </li>
                     {% else %}
                     <li class="nav-item px-5">
-                      <a class="nav-link" href="/profile/"><b>Perfil</b></a>
+                      <a class="nav-link" href="/profile/{{request.user.id}}"><b>Perfil</b></a>
                   </li>
                     <li class="nav-item px-5">
                         <a class="nav-link" href="/logout"><b>Cerrar sesión</b></a>
@@ -93,9 +90,9 @@
     <footer class="page-footer font-small">
       <!-- Copyright -->
       <div class="footer-copyright text-center py-3" style="background-color: #6D65D3 ;">
-        <a href="https://twitter.com/Try_On_Board"> <i class="fab fa-twitter" style="color:white; size:50px;"></i></a>
+        <a target="_blank" href="https://twitter.com/Try_On_Board"> <i class="fab fa-twitter" style="color:white; size:50px;"></i></a>
 
-        <a href="https://github.com/Acme-Board/board"><i class="fab fa-github" style="color:white;"></i></a> <br/>
+        <a target="_blank" href="https://github.com/Acme-Board/board"><i class="fab fa-github" style="color:white;"></i></a> <br/>
         <i style="color:white;">© 2020 Copyright: TryOnBoard</i>
       </div>
     
