@@ -51,7 +51,7 @@
                     </li>
                     {% else %}
                     <li class="nav-item px-5">
-                      <a class="nav-link" href="/profile/"><b>Perfil</b></a>
+                      <a class="nav-link" href="/profile/{{request.user.id}}"><b>Perfil</b></a>
                   </li>
                     <li class="nav-item px-5">
                         <a class="nav-link" href="/logout"><b>Cerrar sesión</b></a>
