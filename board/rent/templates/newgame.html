@@ -26,7 +26,7 @@
 
     <div><h3  class ="well well-sm">Subida de Juego: </h3> </div>
      <div>      
-            <form method="POST" class="NewGame" style=" margin: 5px; padding: 5px">
+            <form method="POST" class="NewGame" style=" margin: 5px; padding: 5px; border-radius: 8px">
               {% csrf_token %}
               {{ form.as_p }}
               <div style="text-align:center; margin: 15px">
