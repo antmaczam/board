@@ -46,3 +46,16 @@ def edit_game(request, pk):
     else:
         form = NewGame(instance=juego)
     return render(request, 'newgame.html', {'form': form})
+
+def rent_game(request, id_game):
+    dato = get_object_or_404(Game, pk=id_game)
+    user = get_object_or_404(User, pk=request.user.id)
+    letters = string.ascii_uppercase
+    digits = string.digits
+    ramdomLetters = ''.join(random.choice(letters) for i in range(3))
+    ramdomNumber = ''.join(random.choice(digits) for i in range(4))
+    ticker = ramdomLetters + '-' + ramdomNumber
+    rent = Rent(ticker=ticker, game=dato, user= user, status='pending')
+    rent.save()
+    games = Game.objects.all()
+    return render(request, 'games.html', {'games': games})
