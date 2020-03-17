@@ -2,7 +2,7 @@ import string
 import random
 
 from django.shortcuts import render ,  get_object_or_404
-from rent.models import Game
+from rent.models import Game, Rent
 from django.conf import settings
 from rent.forms import NewGame
 from django.shortcuts import redirect
@@ -59,3 +59,7 @@ def rent_game(request, id_game):
     rent.save()
     games = Game.objects.all()
     return render(request, 'games.html', {'games': games})
+
+def rents_list(request,id_user):
+    rents = Rent.objects.filter(user=request.user)
+    return render(request,'rents.html',{'rents':rents})
