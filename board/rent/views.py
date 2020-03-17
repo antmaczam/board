@@ -26,7 +26,8 @@ def new_game(request):
         form = NewGame(request.POST)
         if form.is_valid():
             Game = form.save(commit=False)
-
+            Game.owner = request.user
+            
             Game.save()
             return redirect('/gameDetail/{}'.format(Game.id))
     else:
