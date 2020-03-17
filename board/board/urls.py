@@ -29,6 +29,7 @@ from base import views as base_views
 from rent.views import new_game
 from rent import forms as rent_forms
 from rent.forms import NewGame
+
 urlpatterns = [
     #Main
     path('admin/', admin.site.urls),
