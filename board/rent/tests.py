@@ -3,7 +3,7 @@ from django.test import TestCase
 
 from user.models import User
 from rent.models import Game, Status
-
+"""
 class GameModelTestCase(TestCase):
     
     #Prepara una bbdd default con los objetos que se van a testear en este TestCase -------------------
@@ -28,3 +28,4 @@ class GameModelTestCase(TestCase):
     def tearDown(self):
         self.game.delete()
         self.user.delete()
+"""
