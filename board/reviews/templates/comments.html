@@ -22,14 +22,14 @@
 	{% for dato in comments %}
 
 		<tr>
-            <td> <div><h3 class="text-center">{{dato.comment}} </h3></div> <em>Usuario: {{dato.fromUser}}</em> </br> </td>
+            <td> <div style="color:white;"><h3 class="text-center">{{dato.comment}} </h3></div> <em>Usuario: {{dato.fromUser}}</em> </br> </td>
 	     </br>
 		</tr>
 	{% empty %}
 
 <!-- Hacer Visible esta pagina. -->
 
-	<li class="text-center">Vaya, parece que no hay comentarios</li>
+	<li class="text-center" style="color:white;">Vaya, parece que no hay comentarios</li>
 
 	{% endfor %}
 </table>
