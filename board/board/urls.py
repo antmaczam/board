@@ -31,6 +31,7 @@ urlpatterns = [
     path('',base_views.index),
     path('base/', base_views.base),
     path('newgame', rent_views.new_game),
+    path('delete/<int:pk>', rent_views.delete),
     path('gameDetail/<int:pk>/edit/', rent_views.edit_game, name='new_game')
     
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

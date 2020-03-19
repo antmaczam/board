@@ -19,7 +19,13 @@ def games_detail(request,pk):
      dato = get_object_or_404(Game, pk=pk)
      return render(request,'gameDetail.html', {'name':dato.name, 'description':dato.description,'price': dato.price ,
       'status': dato.status,'picture' : dato.picture,'owner': dato.owner })
+def delete(request, pk):
+    # Recuperamos la instancia de la persona y la borramos
+    instancia = Game.objects.get(id=pk)
+    instancia.delete()
 
+    # Después redireccionamos de nuevo a la lista
+    return redirect('/')
 def new_game(request):
     if request.method == "POST":
         form = NewGame(request.POST)

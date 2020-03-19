@@ -10,3 +10,4 @@ class NewGame(forms.ModelForm):
     class Meta:
         model = Game
         fields = ('name', 'description','status','price','picture','address', )
+    
