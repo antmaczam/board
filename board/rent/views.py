@@ -1,5 +1,6 @@
 import string
 import random
+from datetime import date
 
 from django.shortcuts import render ,  get_object_or_404
 from rent.models import Game, Rent
@@ -9,6 +10,8 @@ from django.shortcuts import redirect
 
 # Create your views here.
 from rent.models import Rent
+from rent.models import Order
+from rent.models import OrderItem
 from user.models import User
 
 
@@ -42,7 +45,7 @@ def edit_game(request, pk):
             juego = form.save(commit=False)
             
             juego.save()
-            return  redirect('/gameDetail/{}'.format(pk))
+            return redirect('/gameDetail/{}'.format(pk))
     else:
         form = NewGame(instance=juego)
     return render(request, 'newgame.html', {'form': form})
@@ -63,3 +66,56 @@ def rent_game(request, id_game):
 def rents_list(request,id_user):
     rents = Rent.objects.filter(user=request.user)
     return render(request,'rents.html',{'rents':rents})
+
+def view_cart(request):
+    user = get_object_or_404(User, pk=request.user.id)
+    list_carts = Order.objects.filter(user=user)
+    if not list_carts:
+        ramdomLetters = ''.join(random.choice(string.ascii_uppercase) for i in range(4))
+        ramdomNumber = ''.join(random.choice(string.digits) for i in range(5))
+        ref = ramdomLetters + '-' + ramdomNumber
+        cart = Order(ref_code=ref, user=user, actual=True)
+        cart.save()
+        return render(request, 'orders.html', {'order': cart.items.all()})
+    else:
+        for c in list_carts:
+            if c.actual:
+                cart = c
+                return render(request, 'orders.html', {'order': cart.items.all()})
+
+def add_item_to_cart(request, id_game):
+    dato = get_object_or_404(Game, pk=id_game)
+    user = get_object_or_404(User, pk=request.user.id)
+    list_carts = Order.objects.filter(user=user)
+    if not list_carts:
+        ramdomLetters = ''.join(random.choice(string.ascii_uppercase) for i in range(4))
+        ramdomNumber = ''.join(random.choice(string.digits) for i in range(5))
+        ref = ramdomLetters + '-' + ramdomNumber
+        cart = Order(ref_code=ref, user=user, actual=True)
+        cart.save()
+        añadir = True
+        for item in cart.items.all():
+            if item.game == dato:
+                añadir = False
+                break
+        if añadir:
+            item = OrderItem(game=dato, is_ordered=False, date_added=date.today())
+            item.save()
+            cart.items.add(item)
+            cart.save()
+        return redirect('/cart')
+    else:
+        for c in list_carts:
+            if c.actual:
+                cart = c
+                añadir = True
+                for item in cart.items.all():
+                    if item.game == dato:
+                        añadir = False
+                        break
+                if añadir:
+                    item = OrderItem(game=dato, is_ordered=False, date_added=date.today())
+                    item.save()
+                    cart.items.add(item)
+                    cart.save()
+                return redirect('/cart')

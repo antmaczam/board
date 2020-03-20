@@ -1,0 +1,55 @@
+
+<html>
+<head>
+		{% extends "base.html" %}
+		{% load static %}
+		{% block extrahead %}
+	   <link rel="stylesheet" href="{% static 'css/style_user.css' %}" type="text/css">
+	   {% endblock %}
+</head>
+<body>
+
+
+{% block content %}
+
+
+<div class="container">
+
+	<h2 class="text-center"> Carrito de alquileres </h1></br></h2>
+	</div>
+	<table >
+	{% for dato in order %}
+
+	<table  class= "table-games">
+	<tr style="text-align:center;">
+		<td><img style="width: 245px;height: 245px; ; border-radius: 8px;" src="{{dato.game.picture}} "/>
+	 <div><h3> {{dato.game.name|capfirst}} - <i> {{dato.game.price}} €</i> </br></h3>
+		 Estado: {{dato.game.status}} </br>
+		 <a href= "/gameDetail/{{dato.game.id}}" class="btn btn-info btn-sm"
+            style="border-radius: 8px; margin-top: 10px;">Ver mas</a></br> </br></div></td>
+
+	</tr>
+	</table>
+
+	{% empty %}
+
+
+	<li class="text-center" style="color:white;">Vaya, parece que no hay articulos en su carrito</li>
+
+	{% endfor %}
+         <a href= "" class="btn btn-info btn-sm"
+		  style="border-radius: 8px; margin-top: 10px;">Finalizar compra</a></br> </br></td>
+</table>
+  {% block vue %}
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  {% endblock %}
+  <script src= "prueba.js"></script>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+{% endblock %}
+
+</body>
+</html>
