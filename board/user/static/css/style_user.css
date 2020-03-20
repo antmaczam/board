@@ -14,5 +14,14 @@
     margin-left: 50%;
   }
   
- 
+ .form-register{
+  width:  600px;
+  background: #24303c;
+  padding: 30px;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 8px;
+  font-family: 'calibri';
+  color: white;
+ }
   
