@@ -1,0 +1,25 @@
+
+<
+
+
+{% block content %}
+
+
+    <div><h3  class ="well well-sm">Nuevo Usuario: </h3> </div>
+     <div>      
+            <form method="POST" class="NewUser" style=" margin: 20px;
+            padding: 5px">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Crear</button>
+            </form>
+      </div>
+
+    
+</div>
+<!-- Provisional-->
+</br></br></br></br>
+{% endblock %}
+
+
+</body>
+</html>
