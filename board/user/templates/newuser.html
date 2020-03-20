@@ -18,8 +18,9 @@
                 {% csrf_token %}
                 {{ form.as_p }}
                 <div style="text-align:center; margin: 15px">
-               <button type="submit" class="btn btn-primary disabled"  style="border-radius: 8px">Crear</button>  
-                           </div>
+               <button type="submit" class="btn btn-primary disabled"  style="border-radius: 8px">Crear</button>              
+            </div>
+            <p>¿Ya tiene una cuenta? <a href="/login" style="padding: 5px;"> Inicie Sesión</a></p>
             </form>
       </div>
 
