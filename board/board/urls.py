@@ -45,6 +45,7 @@ urlpatterns = [
     path('gameDetail/<int:pk>/edit/', rent_views.edit_game, name='new_game'),
     re_path(r'rent/(?P<id_game>\d+)',rent_views.rent_game),
     re_path(r'rents/(?P<id_user>\d+)',rent_views.rents_list),
+    path('delete/<int:pk>', rent_views.delete_game),
 
     #User
     re_path(r'profile/(?P<id_user>\d+)',user_views.profile),
