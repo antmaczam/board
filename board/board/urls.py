@@ -48,6 +48,8 @@ urlpatterns = [
 
     #User
     re_path(r'profile/(?P<id_user>\d+)',user_views.profile),
+    path('newuser', user_views.new_user),
+    path('deleteUser/<int:pk>', user_views.delete_myUSer),
 
     #Review
     re_path(r'review/(?P<id_user>\d+)',reviews_views.create_review),
