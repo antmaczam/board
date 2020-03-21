@@ -53,6 +53,7 @@ def new_user(request):
 
 
             User.save()
+            do_login(request, User)
             return redirect('/profile/{}'.format(User.id))
     else:
        form = NewUser()
