@@ -46,8 +46,9 @@ def new_user(request):
     if request.method == "POST":
         form = NewUser(request.POST)
         if form.is_valid():
-
+           
             User = form.save(commit=False)
+            User.set_password(User.password)
             
 
 
