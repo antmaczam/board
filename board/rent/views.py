@@ -16,6 +16,10 @@ def games_list(request):
     games = Game.objects.all()
     return render(request,'games.html',{'games':games})
 
+def games_list_by_user(request):
+    games = Game.objects.filter(owner=request.user)
+    return render(request,'games.html',{'games':games})
+
 def games_detail(request,pk):
      dato = get_object_or_404(Game, pk=pk)
      return render(request,'gameDetail.html', {'name':dato.name, 'description':dato.description,'price': dato.price ,

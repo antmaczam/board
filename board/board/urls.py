@@ -40,6 +40,7 @@ urlpatterns = [
 
     #Rent
     path('games/', rent_views.games_list),
+    path('myGames/', rent_views.games_list_by_user),
     path('gameDetail/<int:pk>/', rent_views.games_detail, name='games_detail'),
     path('newgame', rent_views.new_game),
     path('gameDetail/<int:pk>/edit/', rent_views.edit_game, name='new_game'),
