@@ -8,6 +8,10 @@
     {% endblock %}
 
 <style>
+#popup{
+  text-decoration-color: black;
+}
+
 .container{
     padding:20%;
     margin-left: 20%;
@@ -44,6 +48,8 @@
         <br>
         <h5>Valoración: {{user.rate}}</h5>
         <h5>{{user.bio}}</h5>
+
+        
         <a href="/comments/{{user.id}}" style="color:white; text-decoration:underline;">Ver mis comentarios</a>
 
         
