@@ -1,0 +1,111 @@
+<html>
+<head>
+
+	{% extends "base.html" %}
+	{% load static %}
+	{% block extrahead %}
+	<link rel="stylesheet" href="{% static 'css/rent_style.css' %}" type="text/css"> 
+    {% endblock %} 
+
+    <script type="text/javascript">
+        function ConfirmDelete(){
+            var respuesta = confirm("Estas seguro que deseas Eliminar el producto");
+           // return respuesta == true ? true : false;
+           if(respuesta == true){
+               return true;
+           }else{
+                return false;
+           }
+        }
+    </script>
+
+</head>
+<body>
+    {% block content %}
+
+    
+
+
+
+    <h3 class="container">Tus Juegos, {{user}}</h3>
+    
+    {% for dato in myGames %}
+<table class="container" >
+    <thead>
+        <tr>
+            <th style="width: 15%;"></th>
+            <th style="width: 20%;"></th>
+            <th style="width: 55%;"></th>
+            <th style="width: 10%"></th>
+        </tr>
+        </thead>
+        <tbody>
+    <tr class="table-myGames">
+        <td>
+        <img style="width: 150px;height: 150px; ;" src="{{dato.picture}} "/>
+        </td>
+        <td>
+        <h4>{{dato.name|capfirst}} - <i> {{dato.price}} €</i> </br></h4>
+		 Estado: {{dato.status}} </br>
+        </td>
+        <td> 
+            {{dato.description}}
+        </td>
+        <td>
+           <!-- <div><a href= "/gameDetail/{{dato.id}}" class="btn btn-info btn-sm"
+                style="border-radius: 8px; margin-top: 5px;">Ver mas</a></div>
+            -->
+                <!-- Sin funcionalidad aun -->
+            <div><a href= "/editGame/{{dato.id}}" class="btn btn-info btn-sm"
+                style="border-radius: 8px; margin-top: 5px;">Editar</a></div>
+
+                <!-- Sin funcionalidad aun -->
+
+            <div><button
+                class="btn btn-sm"
+                style="border-radius: 8px; margin-top: 5px; background-color: #F93F42"
+                onclick="return ConfirmDelete()">Eliminar</button></div>
+
+
+        <!-- Aqui viene el pop up-->
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Eliminar
+          </button>
+  
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title text-dark" id="popup">Advertencia</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <h5 class="text-dark" id="popup">¿Estas seguro de que quieres Eliminar el juego?</h5>
+                </div>
+                <div class="modal-footer">
+                  <a role="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</a>
+                  <a role="button" href="delete/{{game.id}}" class="btn btn-primary">Si, Borrarlo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+       
+        </td>
+    </tr>
+</tbody>
+</table>
+    
+    {% empty %}
+
+    <!-- Hacer Visible esta pagina. -->
+    
+    <li>Vaya, parece que no has subido ningun juego</li>
+    
+    {% endfor %}
+
+    {% endblock %}
+</body>
