@@ -103,7 +103,7 @@ def add_item_to_cart(request, id_game):
             item.save()
             cart.items.add(item)
             cart.save()
-        return redirect('/cart')
+        return render(request, 'orders.html', {'order': cart.items.all(), 'mensaje': 'Añadido con exito'})
     else:
         for c in list_carts:
             if c.actual:
@@ -112,10 +112,38 @@ def add_item_to_cart(request, id_game):
                 for item in cart.items.all():
                     if item.game == dato:
                         añadir = False
-                        break
+                        return render(request, 'orders.html', {'order': cart.items.all(), 'mensaje': 'Item ya incluido en el carrito'})
+                    if item.game.owner == user:
+                        añadir = False
+                        return render(request, 'orders.html', {'order': cart.items.all(), 'mensaje': 'No puedes comprar tu propio juego'})
                 if añadir:
                     item = OrderItem(game=dato, is_ordered=False, date_added=date.today())
                     item.save()
                     cart.items.add(item)
                     cart.save()
-                return redirect('/cart')
+                return render(request, 'orders.html', {'order': cart.items.all(), 'mensaje': 'Añadido con exito'})
+
+def delete_item_from_cart(request, id_item):
+    dato = get_object_or_404(OrderItem, pk=id_item)
+    user = get_object_or_404(User, pk=request.user.id)
+    list_carts = Order.objects.filter(user=user)
+    for c in list_carts:
+        if c.actual:
+            cart = c
+            for item in cart.items.all():
+                if item == dato:
+                    cart.items.remove(item)
+                    dato.delete()
+                    return render(request, 'orders.html', {'order': cart.items.all(), 'mensaje': 'Eliminado con exito'})
+    return redirect('/cart')
+
+def empty_cart(request):
+    user = get_object_or_404(User, pk=request.user.id)
+    list_carts = Order.objects.filter(user=user)
+    for c in list_carts:
+        if c.actual:
+            cart = c
+            for item in cart.items.all():
+                cart.items.remove(item)
+                item.delete()
+    return render(request, 'orders.html', {'order': cart.items.all(), 'mensaje': 'Carrito vaciado'})
