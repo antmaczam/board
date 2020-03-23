@@ -5,12 +5,16 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as do_login
 
 from user.models import User
+from user.forms import NewUser
+from reviews.models import Valoration, Comment
+
 
 # Create your views here.
 
 def profile(request, id_user):
      user = get_object_or_404(User, pk=id_user)
-     return render(request,'profile.html', {'user':user})
+     list_comments = Comment.objects.filter(toUser=user)
+     return render(request,'profile.html', {'user':user},{'comments': list_comments})
 
 def logout(request):
      do_logout(request)
@@ -40,3 +44,30 @@ def login(request):
 
     # Si llegamos al final renderizamos el formulario
     return render(request, "login.html", {'form': form})
+
+def new_user(request):
+    if request.method == "POST":
+        form = NewUser(request.POST)
+        if form.is_valid():
+           
+            User = form.save(commit=False)
+            User.set_password(User.password)
+            
+
+
+            User.save()
+            do_login(request, User)
+            return redirect('/profile/{}'.format(User.id))
+    else:
+       form = NewUser()
+    return render(request, 'newuser.html', {'form': form})
+def delete_myUSer(request, pk):
+    # Recuperamos la instancia del user y la borramos
+    instancia = User.objects.get(id=pk)
+    if(instancia == request.user):
+        instancia.delete()
+        return redirect('/')
+  
+    
+    return redirect('/')
+  
