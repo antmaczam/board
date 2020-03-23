@@ -6,12 +6,15 @@ from django.contrib.auth import login as do_login
 
 from user.models import User
 from user.forms import NewUser
+from reviews.models import Valoration, Comment
+
 
 # Create your views here.
 
 def profile(request, id_user):
      user = get_object_or_404(User, pk=id_user)
-     return render(request,'profile.html', {'user':user})
+     list_comments = Comment.objects.filter(toUser=user)
+     return render(request,'profile.html', {'user':user},{'comments': list_comments})
 
 def logout(request):
      do_logout(request)

@@ -19,6 +19,12 @@
   .form-main .form-button {
     margin-left: 50%;
   }
+
+  .d-inline-flex{
+    background-color: #24303c; 
+    margin-left: 30%;
+    width: 35%;
+  }
   
  .form-register{
   width:  600px;
