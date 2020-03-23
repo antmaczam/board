@@ -4,11 +4,10 @@
 	{% extends "base.html" %}
 	{% load static %}
 	{% block extrahead %}
-	<link rel="stylesheet" href="{% static 'css/rent_style.css' %}" type="text/css"> 
-    {% endblock %} 
-
+    <link rel="stylesheet" href="{% static 'css/rent_style.css' %}" type="text/css"> 
+    
     <script type="text/javascript">
-        function ConfirmDelete(){
+        function confirmar(){
             var respuesta = confirm("Estas seguro que deseas Eliminar el producto");
            // return respuesta == true ? true : false;
            if(respuesta == true){
@@ -18,6 +17,9 @@
            }
         }
     </script>
+
+    {% endblock %} 
+
 
 </head>
 <body>
@@ -59,41 +61,13 @@
             <div><a href= "/editGame/{{dato.id}}" class="btn btn-info btn-sm"
                 style="border-radius: 8px; margin-top: 5px;">Editar</a></div>
 
-                <!-- Sin funcionalidad aun -->
+                <!-- Sin funcionalidad aun href="/delete/{{dato.id}}" -->
 
-            <div><button
-                class="btn btn-sm"
-                style="border-radius: 8px; margin-top: 5px; background-color: #F93F42"
-                onclick="return ConfirmDelete()">Eliminar</button></div>
-
-
-        <!-- Aqui viene el pop up-->
-
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Eliminar
-          </button>
-  
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title text-dark" id="popup">Advertencia</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+               <div> <a href="/delete/{{dato.id}}"
+                 style="border-radius: 8px; margin-top: 5px; background-color: #F93F42" 
+                 onclick="confirmar()"
+                 class="btn btn-primary">Borrar</a>
                 </div>
-                <div class="modal-body">
-                  <h5 class="text-dark" id="popup">¿Estas seguro de que quieres Eliminar el juego?</h5>
-                </div>
-                <div class="modal-footer">
-                  <a role="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</a>
-                  <a role="button" href="delete/{{game.id}}" class="btn btn-primary">Si, Borrarlo</a>
-                </div>
-              </div>
-            </div>
-          </div>
-       
         </td>
     </tr>
 </tbody>
