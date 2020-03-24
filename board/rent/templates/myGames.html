@@ -1,23 +1,17 @@
 <html>
 <head>
 
-	{% extends "base.html" %}
+    
+    {% extends "base.html" %}
 	{% load static %}
 	{% block extrahead %}
     <link rel="stylesheet" href="{% static 'css/rent_style.css' %}" type="text/css"> 
-    
-    <script type="text/javascript">
-        function confirmar(){
-            var respuesta = confirm("Estas seguro que deseas Eliminar el producto");
-           // return respuesta == true ? true : false;
-           if(respuesta == true){
-               return true;
-           }else{
-                return false;
-           }
-        }
-    </script>
 
+    <script>
+        function confirmar() {
+          confirm("¿Estas seguro de Eliminar el juego?");
+        }
+        </script>
     {% endblock %} 
 
 
@@ -58,8 +52,8 @@
                 style="border-radius: 8px; margin-top: 5px;">Ver mas</a></div>
             -->
                 <!-- Sin funcionalidad aun -->
-            <div><a href= "/editGame/{{dato.id}}" class="btn btn-info btn-sm"
-                style="border-radius: 8px; margin-top: 5px;">Editar</a></div>
+            <a href= "/editGame/{{dato.id}}" class="btn btn-info btn-sm"
+                style="border-radius: 8px; margin-top: 5px;">Editar</a>
 
                 <!-- Sin funcionalidad aun href="/delete/{{dato.id}}" -->
 
@@ -68,6 +62,8 @@
                  onclick="confirmar()"
                  class="btn btn-primary">Borrar</a>
                 </div>
+            
+                  
         </td>
     </tr>
 </tbody>
