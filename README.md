@@ -77,3 +77,27 @@ Por último, ya podremos ejecutar el módulos o módulos seleccionados en la con
 siguiente manera:
 
     python manage.py runserver
+
+Ejecutar test en local
+----------------------
+
+Los tests se hacen en las clases tests.py de cada módulo, si se desea crear otra clase a parte, 
+el nombre del archivo debe de empezar por test_nombreTest.py, para qu Django sepa que ahí se 
+encuentran test.
+
+A continuación, se abre la consola SQL Shell y se loguea como admin (normalmente user=postgres 
+y pass=postgres) e introducimos el siguiente comando para dar privilegios a nuestro usuario para
+que pueda crear una bbdd para los test case:
+    
+    ALTER USER board CREATEDB;
+    
+Y para poder ejecutar los test en local, desde una consola nos situamos en el directorio del proyecto
+e introducimos uno de los siguientes comandos:
+
+    python manage.py test
+    
+para ejecutar todos los tests de todos los módulos del proyecto, o
+
+    python manage.py test rent
+    
+para ejecutar los tests del módulo en cuestión, en este caso del módulo rent.
