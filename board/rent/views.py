@@ -3,11 +3,7 @@ import random
 from datetime import date
 
 from django.shortcuts import render ,  get_object_or_404
-<<<<<<< HEAD
-from rent.models import Game, Rent
-=======
 from rent.models import Game , Rent
->>>>>>> rent
 from django.conf import settings
 from rent.forms import NewGame
 from django.shortcuts import redirect
@@ -23,32 +19,17 @@ def games_list(request):
     games = Game.objects.all()
     return render(request,'games.html',{'games':games})
 
-<<<<<<< HEAD
 def games_list_by_user(request):
     games = Game.objects.filter(owner=request.user)
     return render(request,'myGames.html',{'myGames':games})
-=======
 def rents_list(request):
     rents  = Rent.objects.filter(user = request.user)
     return render(request,'rents.html',{'rents':rents})
 
->>>>>>> rent
 
 def games_detail(request,pk):
      dato = get_object_or_404(Game, pk=pk)
      return render(request,'gameDetail.html', {'name':dato.name, 'description':dato.description,'price': dato.price ,
-<<<<<<< HEAD
-      'status': dato.status,'picture' : dato.picture,'owner': dato.owner, 'id':dato.id })
-def delete_game(request, pk):
-    # Recuperamos la instancia del juego y la borramos
-    instancia = Game.objects.get(id=pk)
-   
-    if(instancia.owner == request.user):
-        instancia.delete()
-    return  redirect('/games')
-
-    
-=======
       'status': dato.status,'picture' : dato.picture,'owner': dato.owner })
 def delete(request, pk):
     # Recuperamos la instancia de la persona y la borramos
@@ -57,7 +38,6 @@ def delete(request, pk):
 
     # Después redireccionamos de nuevo a la lista
     return redirect('/')
->>>>>>> rent
 def new_game(request):
     if request.method == "POST":
         form = NewGame(request.POST)
