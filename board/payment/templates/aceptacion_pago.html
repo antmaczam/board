@@ -37,12 +37,13 @@
 </style>
 
 
-<div class="index-main" style="width:  500px;
+<div class="index-main" style="
 background: #24303c;
-max-height: 60%;
+max-height: 70%;
+max-width: 45%;
 margin: auto;
-margin-top: 100px;
-margin-bottom: 100px;
+margin-top: 80px;
+margin-bottom: 80px;
 border-radius: 8px;
 color: white;">
 
@@ -50,7 +51,22 @@ color: white;">
 
 <h3 class="index-title">Confirmar la comprar por {{game.price}}€</h3> 
 
-
+<div>     
+     <div  style=" margin-top: 15px; background: #828282; padding: 10px; margin: 10px; border-radius: 8px;">
+     <table>
+          <tr>
+          <h5> Informacion del Juego: </h5>
+          </tr>
+          <tr>
+          <td> <img style="width:100px;height:100px; border-radius: 8px" src="{{game.picture}}"/> </td>
+          <td style=" color: white;"> 
+            <h5> Usuario: {{game.owner}} </h5>
+            <h5> Precio/dia: {{game.price}} &euro;</h5>
+            <h5> Estado: {{game.status}}</h5>
+          </td>
+          </tr>
+     </table>
+     </div>
      <div style="text-align:center; margin-top: 15px;">
 
           <div>
@@ -74,7 +90,7 @@ color: white;">
 
      </div>
 </div>
-
+</div>
 {% endblock %}
 
 </body>
