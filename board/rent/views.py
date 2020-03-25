@@ -30,7 +30,7 @@ def rents_list(request):
 def games_detail(request,pk):
      dato = get_object_or_404(Game, pk=pk)
      return render(request,'gameDetail.html', {'name':dato.name, 'description':dato.description,'price': dato.price ,
-      'status': dato.status,'picture' : dato.picture,'owner': dato.owner })
+      'status': dato.status,'picture' : dato.picture, 'id' : dato.id,'owner': dato.owner })
 def delete(request, pk):
     # Recuperamos la instancia de la persona y la borramos
     instancia = Game.objects.get(id=pk)
