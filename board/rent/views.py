@@ -57,8 +57,6 @@ def rent_game(request, id_game):
     ticker = ramdomLetters + '-' + ramdomNumber
     rent = Rent(ticker=ticker, game=dato, user= user, rentable=False)
     rent.save()
-    games = Game.objects.all()
-    return render(request, 'games.html', {'games': games})
 
 def rents_list(request,id_user):
     rents = Rent.objects.filter(user=request.user)

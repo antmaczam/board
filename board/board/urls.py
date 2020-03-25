@@ -24,6 +24,7 @@ from user import views as user_views
 from rent import views as rent_views
 from reviews import views as reviews_views
 from base import views as base_views
+from payment import views as stripe_views
 
 
 from rent.views import new_game
@@ -51,6 +52,12 @@ urlpatterns = [
 
     #Review
     re_path(r'review/(?P<id_user>\d+)',reviews_views.create_review),
-    re_path(r'comments/(?P<id_user>\d+)',reviews_views.list_comments)
+    re_path(r'comments/(?P<id_user>\d+)',reviews_views.list_comments),
+
+    #Stripe
+    path('payment', stripe_views.pay),
+    re_path(r'charge/(?P<id_game>\d+)', stripe_views.charge),
+    re_path(r'confirm/(?P<id_game>\d+)/', stripe_views.confirm),
+    path('success/', stripe_views.pago_completado),
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
