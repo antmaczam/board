@@ -12,6 +12,12 @@
 
      {% endblock %}   
 
+     {% block vue %}
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+{% endblock %}
+
 </head>
 
 <body>
@@ -31,58 +37,45 @@
 </style>
 
 
+<div class="index-main" style="width:  500px;
+background: #24303c;
+max-height: 60%;
+margin: auto;
+margin-top: 100px;
+margin-bottom: 100px;
+border-radius: 8px;
+color: white;">
 
-<div class="index-main">
+     <img class="index-icon" src="{% static 'img/icon.png' %}"/>
 
-     <img class="index-icon" src="{% static 'img/icon.png' %}" />
-
-<h1 class="index-title">¿Estas seguro de que quieres proceder con el pago ({{game.price}}€)?</h1> 
-     {{game.price}}
+<h3 class="index-title">Confirmar la comprar por {{game.price}}€</h3> 
 
 
-<div class="row py-3">
+     <div style="text-align:center; margin-top: 15px;">
 
-     <div class='col '>
+          <div>
 
-          <form action='charge/{{game.id}}' method="POST">
-               {% csrf_token %}
-               <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-               data-key="{{ key }}"
-               data-description="A Django Charge"
-               data-currency="eur"
-               data-amount="{{cent}}"
-               data-locale="auto""></script>
-             </form> 
+               <form action='charge/{{game.id}}' method="POST">
+                 {% csrf_token %}
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                 data-key="{{ key }}"
+                data-description="Pago"
+                 data-currency="eur"
+                data-amount="{{cent}}"
+                data-locale="auto"
+                ></script>
+                <a class="btn btn-info btn-sm" href="/games"
+                role="stripe-button" style='border-radius: 8px; margin-left: 5%'>Volver</a> 
+               </form> 
+
+         
+
+          </div>
 
      </div>
-
-     <div class='col'>
-
-          <a class="btn btn-primary btn-lg mx-5 d-block" href="/stripe/pago_completado" role="button" style='background-color: #6D65D3;''>No</a> 
-
-     </div>
-
-     
-
-
-
-</div>
-
-
-
-
-
 </div>
 
 {% endblock %}
-
-{% block vue %}
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-{% endblock %}
-
-
 
 </body>
 
