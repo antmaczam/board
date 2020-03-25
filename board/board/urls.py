@@ -41,14 +41,21 @@ urlpatterns = [
 
     #Rent
     path('games/', rent_views.games_list),
+    path('myGames/', rent_views.games_list_by_user),
     path('gameDetail/<int:pk>/', rent_views.games_detail, name='games_detail'),
     path('newgame', rent_views.new_game),
     path('gameDetail/<int:pk>/edit/', rent_views.edit_game, name='new_game'),
     re_path(r'rent/(?P<id_game>\d+)',rent_views.rent_game),
     re_path(r'rents/(?P<id_user>\d+)',rent_views.rents_list),
-
+    re_path(r'cart/',rent_views.view_cart),
+    re_path(r'addCart/(?P<id_game>\d+)', rent_views.add_item_to_cart),
+    re_path(r'deleteCart/(?P<id_item>\d+)', rent_views.delete_item_from_cart),
+    re_path(r'deleteAll/', rent_views.empty_cart),
     #User
     re_path(r'profile/(?P<id_user>\d+)',user_views.profile),
+    path('newuser', user_views.new_user),
+    path('deleteUser/<int:pk>', user_views.delete_myUSer),
+    path('delete/<int:pk>', rent_views.delete),
 
     #Review
     re_path(r'review/(?P<id_user>\d+)',reviews_views.create_review),

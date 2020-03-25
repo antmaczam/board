@@ -21,6 +21,7 @@
   color: white;
 }
 
+
 .table-games{
   background: #24303c;
 	padding: 10px;
@@ -34,4 +35,13 @@
 
 .table-games:hover{
   transform: scale(1.05);
+}
+
+.table-myGames{
+  background: #24303c;
+	padding: 10px;
+	margin-top: 10px;
+	border-radius: 8px;
+	font-family: 'calibri';
+  color: white;
 }
