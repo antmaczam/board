@@ -62,9 +62,8 @@ urlpatterns = [
     re_path(r'comments/(?P<id_user>\d+)',reviews_views.list_comments),
 
     #Stripe
-    path('payment', stripe_views.pay),
-    re_path(r'charge/(?P<id_game>\d+)', stripe_views.charge),
-    re_path(r'confirm/(?P<id_game>\d+)/', stripe_views.confirm),
+    re_path(r'charge/(?P<id_cart>\d+)', stripe_views.charge),
+    re_path(r'confirm/(?P<id_cart>\d+)/', stripe_views.confirm),
     path('success/', stripe_views.pago_completado),
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -88,12 +88,12 @@ def view_cart(request):
         ref = ramdomLetters + '-' + ramdomNumber
         cart = Order(ref_code=ref, user=user, actual=True)
         cart.save()
-        return render(request, 'orders.html', {'order': cart.items.all()})
+        return render(request, 'orders.html', {'order': cart.items.all(), 'sum':cart.get_total_price(), 'id':cart.id})
     else:
         for c in list_carts:
             if c.actual:
                 cart = c
-                return render(request, 'orders.html', {'order': cart.items.all()})
+                return render(request, 'orders.html', {'order': cart.items.all(),'sum':cart.get_total_price(), 'id':cart.id})
 
 def add_item_to_cart(request, id_game):
     dato = get_object_or_404(Game, pk=id_game)
@@ -115,7 +115,7 @@ def add_item_to_cart(request, id_game):
             item.save()
             cart.items.add(item)
             cart.save()
-        return render(request, 'orders.html', {'order': cart.items.all(), 'mensaje': 'Añadido con exito'})
+        return render(request, 'orders.html', {'order': cart.items.all(), 'id':cart.id, 'mensaje': 'Añadido con exito','sum':cart.get_total_price()})
     else:
         for c in list_carts:
             if c.actual:
@@ -124,16 +124,16 @@ def add_item_to_cart(request, id_game):
                 for item in cart.items.all():
                     if item.game == dato:
                         añadir = False
-                        return render(request, 'orders.html', {'order': cart.items.all(), 'mensaje': 'Item ya incluido en el carrito'})
+                        return render(request, 'orders.html', {'order': cart.items.all(), 'id':cart.id, 'mensaje': 'Item ya incluido en el carrito','sum':cart.get_total_price()})
                     if item.game.owner == user:
                         añadir = False
-                        return render(request, 'orders.html', {'order': cart.items.all(), 'mensaje': 'No puedes comprar tu propio juego'})
+                        return render(request, 'orders.html', {'order': cart.items.all(), 'id':cart.id, 'mensaje': 'No puedes comprar tu propio juego','sum':cart.get_total_price()})
                 if añadir:
                     item = OrderItem(game=dato, is_ordered=False, date_added=date.today())
                     item.save()
                     cart.items.add(item)
                     cart.save()
-                return render(request, 'orders.html', {'order': cart.items.all(), 'mensaje': 'Añadido con exito'})
+                return render(request, 'orders.html', {'order': cart.items.all(), 'id':cart.id, 'mensaje': 'Añadido con exito','sum':cart.get_total_price()})
 
 def delete_item_from_cart(request, id_item):
     dato = get_object_or_404(OrderItem, pk=id_item)
@@ -146,7 +146,7 @@ def delete_item_from_cart(request, id_item):
                 if item == dato:
                     cart.items.remove(item)
                     dato.delete()
-                    return render(request, 'orders.html', {'order': cart.items.all(), 'mensaje': 'Eliminado con exito'})
+                    return render(request, 'orders.html', {'order': cart.items.all(), 'id':cart.id, 'mensaje': 'Eliminado con exito','sum':cart.get_total_price()})
     return redirect('/cart')
 
 def empty_cart(request):
@@ -158,4 +158,4 @@ def empty_cart(request):
             for item in cart.items.all():
                 cart.items.remove(item)
                 item.delete()
-    return render(request, 'orders.html', {'order': cart.items.all(), 'mensaje': 'Carrito vaciado'})
+    return render(request, 'orders.html', {'order': cart.items.all(), 'id':cart.id, 'mensaje': 'Carrito vaciado','sum':cart.get_total_price()})

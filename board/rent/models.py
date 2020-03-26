@@ -71,3 +71,9 @@ class Order(models.Model):
 
     def get_cart_items(self):
         return self.items.all()
+    
+    def get_total_price(self):
+        sum = 0
+        for x in self.get_cart_items():
+            sum = sum + x.game.price
+        return sum
