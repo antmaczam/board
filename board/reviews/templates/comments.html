@@ -1,0 +1,48 @@
+
+<html>
+<head>
+		{% extends "base.html" %}
+		{% load static %}
+		{% block extrahead %}
+	   <link rel="stylesheet" href="{% static 'css/style_user.css' %}" type="text/css"> 
+	   {% endblock %}
+</head>
+<body>
+
+
+{% block content %}
+
+<!-- Aqui hacer bucle por columna para hacer una buena vista-->
+
+<div class="container">
+
+	<h2 class="text-center"> Lista de comentarios </h1></br>
+	</div>
+	<table >
+	{% for dato in comments %}
+
+		<tr>
+            <td> <div style="color:white;"><h3 class="text-center">{{dato.comment}} </h3></div> <em>Usuario: {{dato.fromUser}}</em> </br> </td>
+	     </br>
+		</tr>
+	{% empty %}
+
+<!-- Hacer Visible esta pagina. -->
+
+	<li class="text-center" style="color:white;">Vaya, parece que no hay comentarios</li>
+
+	{% endfor %}
+</table>
+  {% block vue %}
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  {% endblock %}
+  <script src= "prueba.js"></script>
+
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+
+    {% extends "base.html" %}
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/rent_style.css' %}">
+
+
+</head>
+
+<body>
+
+
+{% block content %}
+<!--<div class="container" style="width:600px;"> -->
+  <section class="form-register" style=" 
+  width:  600px;
+  background: #24303c;
+  padding: 30px;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 8px;
+  font-family: 'calibri';
+  color: white;">
+
+    <div><h3  class ="well well-sm">Subida de Juego: </h3> </div>
+     <div>      
+            <form method="POST" class="NewGame" style=" margin: 20px;
+            padding: 5px">{% csrf_token %}
+                {{ form.as_p }}
+                <div style="text-align:center; margin: 15px">
+                <button type="submit" class="btn btn-primary disabled" ; style="border-radius: 8px">Alquilar</button>
+                </div>
+            </form>
+      </div>
+
+    </section>
+    <!-- Fin Prueba-->
+
+</div>
+
+{% endblock %}
+
+
+</body>
+</html>

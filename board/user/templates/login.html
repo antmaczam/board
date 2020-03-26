@@ -1,0 +1,31 @@
+<html>
+<head>
+     {% extends "base.html" %}
+     {% load static %}
+     {% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/style_user.css' %}" type="text/css"> 
+    {% endblock %}
+</head>
+<body>
+
+{% block content %}
+
+<div class="form-main">
+    <h2 class="form-title">Iniciar sesión</h2></br> 
+    <form method="POST">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <br/>
+        <div style="text-align:center; margin: 5px">
+        <button type="submit" class="btn btn-primary"  style="border-radius: 8px">Entrar</button>
+    </div>
+        <p>¿Aun no tienes cuenta? <a href="/newuser" style="padding: 5px;"> Registrate aquí</a></p>
+    </form>
+</div>
+{% endblock %}
+{% block vue %}
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+{% endblock %}
+
+</body>
+</html>

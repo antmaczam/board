@@ -1,0 +1,292 @@
+[
+  {
+		"fields": {
+			"password": "pbkdf2_sha256$150000$40$mbu3EIOy+CJGurks5j21JugGIq6arcSgON2NUt0MTXM=",
+			"last_login": null,
+			"is_superuser": false,
+			"username": "User1",
+			"first_name": "User1",
+			"last_name": "User1",
+			"email": "user1@algo.algo",
+			"is_staff": false,
+			"is_active": true,
+			"date_joined": "2019-10-11T22:00:00Z",
+			"bio": "bio",
+			"range": "noob",
+			"picture": "https://image.flaticon.com/icons/png/512/16/16480.png",
+			"rate": "2",
+			"admin": false,
+			"groups": [],
+			"user_permissions": []
+		},
+		"model": "user.user",
+		"pk": 10
+	},
+	{
+		"fields": {
+			"password": "pbkdf2_sha256$150000$40$mbu3EIOy+CJGurks5j21JugGIq6arcSgON2NUt0MTXM=",
+			"last_login": null,
+			"is_superuser": false,
+			"username": "User2",
+			"first_name": "User2",
+			"last_name": "User2",
+			"email": "user2@algo.algo",
+			"is_staff": false,
+			"is_active": true,
+			"date_joined": "2019-11-11T22:00:00Z",
+			"bio": "bio2",
+			"range": "Pro",
+			"picture": "picture",
+			"rate": "4",
+			"admin": false,
+			"groups": [],
+			"user_permissions": []
+		},
+		"model": "user.user",
+		"pk": 11
+	},
+	{
+		"fields": {
+			"password": "pbkdf2_sha256$150000$40$U+8+6EJfQOFoP2wK/VusIFLMRiphC7SzPC0Q12n3XHQ=",
+			"last_login": "2019-11-11T22:00:00Z",
+			"is_superuser": false,
+			"username": "usuario",
+			"first_name": "usuario",
+			"last_name": "usuario",
+			"email": "usuario@algo.algo",
+			"is_staff": false,
+			"is_active": true,
+			"date_joined": "2019-11-11T22:00:00Z",
+			"bio": "usuario",
+			"range": "Pro",
+			"picture": "picture",
+			"rate": "1",
+			"admin": false,
+			"groups": [],
+			"user_permissions": []
+		},
+		"model": "user.user",
+		"pk": 15
+	},
+	{
+		"fields": {
+			"password": "pbkdf2_sha256$150000$40$mbu3EIOy+CJGurks5j21JugGIq6arcSgON2NUt0MTXM=",
+			"last_login": "2019-11-11T22:00:00Z",
+			"is_superuser": false,
+			"username": "Juan",
+			"first_name": "Juan",
+			"last_name": "Ro",
+			"email": "juan@algo.algo",
+			"is_staff": false,
+			"is_active": true,
+			"date_joined": "2019-11-11T22:00:00Z",
+			"bio": "Hola, soy juan",
+			"range": "Pro",
+			"picture": "picture",
+			"rate": "4.5",
+			"admin": false,
+			"groups": [],
+			"user_permissions": []
+		},
+		"model": "user.user",
+		"pk": 16
+	},
+	{
+		"fields": {
+			"password": "pbkdf2_sha256$150000$40$mbu3EIOy+CJGurks5j21JugGIq6arcSgON2NUt0MTXM=",
+			"last_login": "2019-11-11T22:00:00Z",
+			"is_superuser": false,
+			"username": "Pedro",
+			"first_name": "Pedro",
+			"last_name": "Jek",
+			"email": "Pedro@algo.algo",
+			"is_staff": false,
+			"is_active": true,
+			"date_joined": "2019-11-11T22:00:00Z",
+			"bio": "Hola, soy pedro",
+			"range": "Noob",
+			"picture": "picture",
+			"rate": "2",
+			"admin": false,
+			"groups": [],
+			"user_permissions": []
+		},
+		"model": "user.user",
+		"pk": 17
+	},
+	{
+		"fields": {
+			"password": "pbkdf2_sha256$150000$40$mbu3EIOy+CJGurks5j21JugGIq6arcSgON2NUt0MTXM=",
+			"last_login": "2019-11-11T22:00:00Z",
+			"is_superuser": false,
+			"username": "Maria",
+			"first_name": "Maria",
+			"last_name": "Re",
+			"email": "Maria@algo.algo",
+			"is_staff": false,
+			"is_active": true,
+			"date_joined": "2019-11-11T22:00:00Z",
+			"bio": "Hola, soy Maria",
+			"range": "Pro",
+			"picture": "picture",
+			"rate": "5",
+			"admin": false,
+			"groups": [],
+			"user_permissions": []
+		},
+		"model": "user.user",
+		"pk": 17
+	},
+	{
+		"fields": {
+			"password": "pbkdf2_sha256$150000$40$mbu3EIOy+CJGurks5j21JugGIq6arcSgON2NUt0MTXM=",
+			"last_login": "2019-11-11T22:00:00Z",
+			"is_superuser": false,
+			"username": "Paco",
+			"first_name": "Paco",
+			"last_name": "Kiao",
+			"email": "Paco@algo.algo",
+			"is_staff": false,
+			"is_active": true,
+			"date_joined": "2019-11-11T22:00:00Z",
+			"bio": "Hola, soy Paco",
+			"range": "Noob",
+			"picture": "picture",
+			"rate": "3.5",
+			"admin": false,
+			"groups": [],
+			"user_permissions": []
+		},
+		"model": "user.user",
+		"pk": 18
+	},
+
+
+
+
+	{
+		"fields": {
+			"name": "Kitchnexus",
+			"description": "Esta es una descripcion",
+			"status": "Perfecto",
+			"price": 20,
+			"picture": "https://images-na.ssl-images-amazon.com/images/I/61ErX6TV4KL._SY355_.jpg",
+			"address": "Calle algarrobo",
+			"owner": 10
+		},
+		"model": "rent.game",
+		"pk": 13
+	},
+	{
+		"fields": {
+			"name": "Tactics",
+			"description": "Esta es una descripcion",
+			"status": "Perfecto",
+			"price": 10,
+			"picture": "https://cloud10.todocoleccion.online/juegos-mesa/tc/2019/04/06/09/158770522.jpg",
+			"address": "Calle algarrobo",
+			"owner": 10
+		},
+		"model": "rent.game",
+		"pk": 12
+	},
+	{
+		"fields": {
+			"name": "Preguntados",
+			"description": "Esta es una descripcion",
+			"status": "Gastado",
+			"price": 5,
+			"picture": "https://www.juguetescolumpios.com/1913-large_default/preguntados-juego-de-mesa.jpg",
+			"address": "Calle algarrobo",
+			"owner": 11
+		},
+		"model": "rent.game",
+		"pk": 14
+	},
+	{
+		"fields": {
+			"name": "Monopoli",
+			"description": "Esta es una descripcion",
+			"status": "Perfecto",
+			"price": 5,
+			"picture": "https://www.toysrus.es/medias/?context=bWFzdGVyfHByb2R1Y3RfaW1hZ2VzfDQ5NDIwfGltYWdlL2pwZWd8aDExL2hlZC85MjY5NTg3MjE0MzY2fGE1MTdjN2M0YTJhMTM5Y2MwYjAxNmM5NmYwZTI2ZjJiNDhlYWRkYjQ4MTQ1ZGJjNTQwYzIwMjliZmFlZDI3YzQ",
+			"address": "Calle Dos",
+			"owner": 17
+		},
+		"model": "rent.game",
+		"pk": 20
+	},
+	{
+		"fields": {
+			"name": "Fantasma",
+			"description": "Esta es una descripcion",
+			"status": "Perfecto",
+			"price": 20.3,
+			"picture": "https://images-na.ssl-images-amazon.com/images/I/61v9axzYRDL._SY355_.jpg",
+			"address": "Calle Dos",
+			"owner": 17
+		},
+		"model": "rent.game",
+		"pk": 21
+	},
+	{
+		"fields": {
+			"name": "1000 nombres",
+			"description": "Esta es una descripcion aun mas larga",
+			"status": "Gastado",
+			"price": 7,
+			"picture": "https://cloud10.todocoleccion.online/juegos-mesa/tc/2017/07/23/09/93894414_1500793869.jpg",
+			"address": "Calle Dos",
+			"owner": 17
+		},
+		"model": "rent.game",
+		"pk": 22
+	},
+	{
+		"fields": {
+			"ticker": "ABC-1234",
+			"rentable": true,
+			"user": 16,
+			"game": 22
+		},
+		"model": "rent.rent",
+		"pk": 23
+	},
+	{
+		"fields": {
+			"fromUser": 16,
+			"toUser": 17,
+			"comment": "Comentarioooo"
+		},
+		"model": "reviews.comment",
+		"pk": 25
+	},
+	{
+		"fields": {
+			"fromUser": 16,
+			"toUser": 17,
+			"rate": 4
+		},
+		"model": "reviews.valoration",
+		"pk": 26
+	},
+	{
+		"fields": {
+			"fromUser": 17,
+			"toUser": 16,
+			"comment": "Respuestaa"
+		},
+		"model": "reviews.comment",
+		"pk": 27
+	},
+	{
+		"fields": {
+			"fromUser": 17,
+			"toUser": 16,
+			"rate": 3
+		},
+		"model": "reviews.valoration",
+		"pk": 28
+	}
+
+]
