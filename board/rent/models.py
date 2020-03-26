@@ -16,7 +16,7 @@ class Game(models.Model):
     name = models.CharField(max_length=50, default='')
     description = models.TextField(max_length=500, default='')
     status = models.CharField(max_length=20,choices=[(str(x),x.value) for x in Status])
-    price = models.FloatField(default=0.0)
+    price = models.FloatField(help_text="El precio del alquiler equivaldrá a 1 día", validators=[MinValueValidator(0.1,"No puede regalar un juego"),MinValueValidator(0.0,"No puedue ser negativo")])
     picture = models.CharField(max_length=500,validators=[URLValidator])
     address = models.CharField(max_length=100, default='')
     owner = models.ForeignKey(User,on_delete=models.CASCADE)
