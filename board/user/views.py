@@ -16,7 +16,7 @@ from reviews.models import Valoration, Comment
 def profile(request, id_user):
      user = get_object_or_404(User, pk=id_user)
      list_comments = Comment.objects.filter(toUser=user)
-     return render(request,'profile.html', {'user':user},{'comments': list_comments})
+     return render(request,'profile.html', {'user':user, 'comments': list_comments})
 
 def logout(request):
      do_logout(request)
