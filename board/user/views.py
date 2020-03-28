@@ -7,7 +7,7 @@ from django.contrib.auth.hashers import check_password
 from django import forms
 
 from user.models import User
-from user.forms import NewUser, Register
+from user.forms import  Register
 from reviews.models import Valoration, Comment
 
 
@@ -61,12 +61,12 @@ def edit_user(request, pk):
     instancia = User.objects.get(id=pk)
 
     # Creamos el formulario con los datos de la instancia
-    form = NewUser(instance=instancia)
+    form = Register(instance=instancia)
 
     # Comprobamos si se ha enviado el formulario
     if request.method == "POST":
         # Actualizamos el formulario con los datos recibidos
-        form = NewUser(request.POST, instance=instancia)
+        form = Register(request.POST, instance=instancia)
         # Si el formulario es válido...
         if form.is_valid():
             # Guardamos el formulario pero sin confirmarlo,
@@ -81,11 +81,14 @@ def edit_user(request, pk):
 
 def new_user(request):
     if(request.method=='POST'):
-        formulario = Register(request.POST)
-        if(formulario.is_valid()):
+        formulario = Register(request.POST ,request.FILES or None)
+        
+        if(formulario.is_valid()  ):
             if (formulario.cleaned_data['password1']!=formulario.cleaned_data['password2']):
-               formulario.add_error('password2','no coinciden las contraseñas')
-               return render(request,"newuser.html",{"form":formulario})
+                formulario.add_error('password2','no coinciden las contraseñas')
+                return render(request,"newuser.html",{"form":formulario})
+                
+                
             username = formulario.cleaned_data['username']
             password = formulario.cleaned_data['password1']
             name = formulario.cleaned_data['name']

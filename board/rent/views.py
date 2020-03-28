@@ -41,7 +41,8 @@ def delete(request, pk):
 
 def new_game(request):
     if request.method == "POST":
-        form = NewGame(request.POST)
+        form = NewGame(request.POST,request.FILES or None)
+        
         if form.is_valid():
 
             name = form.cleaned_data['name']
