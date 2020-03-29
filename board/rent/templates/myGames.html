@@ -14,7 +14,6 @@
         </script>
     {% endblock %} 
 
-
 </head>
 <body>
     {% block content %}
@@ -38,7 +37,9 @@
         <tbody>
     <tr class="table-myGames">
         <td>
-        <img style="width: 150px;height: 150px; ;" src="{{dato.picture}} "/>
+        <img class="img-responsive" src="{% static '' %}" 
+        style="width: 150px;height: 150px;"/>
+        
         </td>
         <td>
         <h4>{{dato.name|capfirst}} - <i> {{dato.price}} €</i> </br></h4>
