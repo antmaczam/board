@@ -99,6 +99,12 @@ def edit_game(request, pk):
             return redirect('/gameDetail/{}'.format(pk))
     else:
         form = NewGame()
+        form.fields["name"].initial = juego.name
+        form.fields["description"].initial = juego.description
+        form.fields["status"].initial = juego.status
+        form.fields["price"].initial = juego.price
+        form.fields["picture"].initial = juego.picture
+        form.fields["address"].initial = juego.address
     return render(request, 'newgame.html', {'form': form})
 
 def rent_game(request, id_game):
